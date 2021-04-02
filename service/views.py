@@ -1,10 +1,12 @@
 from django.shortcuts import render
+from rest_flex_fields.views import FlexFieldsMixin, FlexFieldsModelViewSet
 from rest_framework import viewsets
+from rest_framework.viewsets import ReadOnlyModelViewSet
 
 from service.models import UrunFiyat, UrunOzellikleri, IlceModel, SehirModel, KategoriModel, AltKategoriModel, \
-    UrunModel, UrunResimler
+    UrunModel, UrunResimler,  AdresModel
 from service.serializers import UrunFiyatSerializer, UrunOzellikleriSerializer, IlceSerializer, SehirSerializer, \
-    KategoriSerializer, AltKategoriSerializer, UrunSerializer, UrunResimlerSerializer
+    KategoriSerializer, AltKategoriSerializer, UrunSerializer, UrunResimlerSerializer,  AdresSerializer
 
 
 class IlceViewSet(viewsets.ModelViewSet):
@@ -16,16 +18,20 @@ class SehirViewSet(viewsets.ModelViewSet):
     queryset = SehirModel.objects.all()
     serializer_class = SehirSerializer
 
+class AdresViewSet(viewsets.ModelViewSet):
+    queryset = AdresModel.objects.all()
+    serializer_class = AdresSerializer
+
 
 class KategoriViewSet(viewsets.ModelViewSet):
     queryset = KategoriModel.objects.all()
     serializer_class = KategoriSerializer
 
 
-class AltKategoriViewSet(viewsets.ModelViewSet):
+class AltKategoriViewSet(FlexFieldsModelViewSet):
     queryset = AltKategoriModel.objects.all()
     serializer_class = AltKategoriSerializer
-
+    permit_list_expands = ['kategoriId']
 
 
 class UrunViewSet(viewsets.ModelViewSet):
@@ -47,19 +53,4 @@ class UrunFiyatViewSet(viewsets.ModelViewSet):
     queryset = UrunFiyat.objects.all()
     serializer_class = UrunFiyatSerializer
 
-"""
-class KampanyaViewSet(viewsets.ModelViewSet):
-    queryset = KampanyaModel.objects.all()
-    serializer_class = KampanyaSerializer
 
-
-class KampanyaUrunViewSet(viewsets.ModelViewSet):
-    queryset = KampanayaUrun.objects.all()
-    serializer_class = KampanyaUrunSerializer
-    
-
-class KargoViewSet(viewsets.ModelViewSet):
-    queryset = KargoModel.objects.all()
-    serializer_class = KargoSerializer
-
-"""

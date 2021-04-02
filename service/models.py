@@ -1,6 +1,8 @@
 import os
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.template.defaultfilters import slugify
+
 
 class BaseModel(models.Model):
     create_at = models.DateTimeField(auto_now_add=True, editable=False)
@@ -24,6 +26,7 @@ class SehirModel(BaseModel):
     def __str__(self):
         return self.adi
 
+
 class IlceModel(BaseModel):
     sehir = models.ForeignKey(SehirModel, on_delete=models.CASCADE , verbose_name="Şehir")
     adi = models.CharField(verbose_name="Adi", max_length=255)
@@ -38,31 +41,47 @@ class IlceModel(BaseModel):
     def __str__(self):
         return self.adi
 
-class KargoModel(BaseModel):
-    adi = models.CharField(verbose_name="Adi" , max_length=255 )
-    telefon = models.CharField(verbose_name="Telefon",max_length=255)
-    aciklama = RichTextField(verbose_name="Açıklama")
-    websitesi = models.CharField(verbose_name="URL " , null=True , blank=True , max_length=255)
-    sirketmi = models.BooleanField(verbose_name="Şirketmi" , default=False)
+
+class AdresModel(BaseModel):
+    sehir =models.ForeignKey(SehirModel, on_delete=models.CASCADE , verbose_name="Şehir")
+    ilce =models.ForeignKey(IlceModel, on_delete=models.CASCADE , verbose_name="Ilce")
+    adres =models.CharField(verbose_name="Adres", max_length=255)
+    yedekTelefon = models.CharField(verbose_name="Telefon",max_length=255)
+
     class Meta:
-        db_table = 'kargotb'
-        verbose_name = "Kargo"
-        verbose_name_plural = "Kargo"
+        db_table = 'adrestb'
+        verbose_name = "Adres"
+        verbose_name_plural = "Adres"
         ordering = ['-create_at']
 
     def __str__(self):
-        return self.adi
+        return self.id
+
 
 def file_urun_save(intence, filename):
-    filename = "urun/{}/{}".format(intence.urun.kategori, intence.urun, filename)
+    filename = "urun/{}/{}".format(intence.urun.kategoriId.slug, intence.urun.slug, filename)
     return os.path.join('urun', filename)
-
 
 
 class KategoriModel(BaseModel):
     adi = models.CharField(verbose_name="Adi", max_length=255)
     kdvorani = models.IntegerField(verbose_name="Kdv Orani ", default=18)
+    slug = models.SlugField(verbose_name="Slug",default="", max_length=255, editable=False)
 
+
+    def slugOlustur(self):
+        slug = slugify(self.adi)
+        unique_slug = slug
+        num = 1
+        while KategoriModel.objects.filter(slug=unique_slug).exists():
+            unique_slug = "{}-{}".format(slug, num)
+            num += 1
+        return unique_slug
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = self.slugOlustur()
+        super(KategoriModel, self).save()
 
     def __str__(self):
         return self.adi
@@ -92,26 +111,44 @@ class AltKategoriModel(BaseModel):
 
 class UrunModel(BaseModel):
     kategoriId = models.ForeignKey(KategoriModel, on_delete=models.CASCADE, verbose_name="Kategori")
-    altkategoriId = models.ForeignKey(AltKategoriModel, on_delete=models.CASCADE, verbose_name="Kategori")
+    altkategoriId = models.ForeignKey(AltKategoriModel, on_delete=models.CASCADE, verbose_name="Alt Kategori")
     adi = models.CharField(verbose_name="Ürün Adi ", max_length=255)  # String
     aciklama = RichTextField(verbose_name="Ürün Açıklama ", blank=True, null=True)
     aktifmi = models.BooleanField(verbose_name="Ürün Aktif Mi ", default=False)
     stok = models.IntegerField(verbose_name="Stok ", default=1)
+    slug = models.SlugField(verbose_name="Ürün Slug",default="", editable=False)
+
+    def slugOlustur(self):
+        slug = slugify(self.adi)
+        unique_slug = slug
+        num = 1
+        while UrunModel.objects.filter(slug=unique_slug).exists():
+            unique_slug = "{}-{}".format(slug, num)
+            num += 1
+        return unique_slug
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = self.slugOlustur()
+        super(UrunModel, self).save()
+
 
     class Meta:
         verbose_name = "Ürün Modeli"
         verbose_name_plural = "Ürün Modeli"
         ordering = ['-create_at']
 
+
 class UrunResimler(BaseModel):
     urun = models.ForeignKey(UrunModel, on_delete=models.CASCADE, verbose_name="Ürün ")
-    urunresim = models.ImageField(upload_to=file_urun_save,default="", editable=False, verbose_name="Ürün Resim ")
+    urunresim = models.ImageField(upload_to=file_urun_save, verbose_name="Ürün Resim ")
 
     class Meta:
         db_table = 'urunresimtb'
         verbose_name = "Ürün Galerisi"
         verbose_name_plural = "Ürün Galerisi"
         ordering = ['-create_at']
+
 
 class UrunOzellikleri(BaseModel):
     urun = models.ForeignKey(UrunModel, on_delete=models.CASCADE, verbose_name="Ürün")
@@ -123,6 +160,7 @@ class UrunOzellikleri(BaseModel):
         verbose_name_plural = "Ürün Özellik "
         ordering = ['-create_at']
 
+
 class UrunFiyat(BaseModel):
     urun = models.ForeignKey(UrunModel, on_delete=models.CASCADE, verbose_name="Ürün")
     satisfiyati = models.FloatField(verbose_name="Satiş Fiyati ", default=0)
@@ -132,14 +170,3 @@ class UrunFiyat(BaseModel):
         verbose_name = "Ürün Fiyatı "
         verbose_name_plural = "Ürün Fiyatı"
         ordering = ['-create_at']
-
-
-
-
-
-
-
-
-
-
-

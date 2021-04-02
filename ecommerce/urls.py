@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url
+from django.views.static import serve
 
-
+from ecommerce import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', admin.site.urls),
     path('auth/', include('authentication.urls')),
     path('service/', include('service.urls')),
 ]
@@ -28,3 +30,8 @@ urlpatterns = [
 admin.site.site_title = 'Yönetim'
 admin.site.site_header = 'Yönetim Paneli'
 admin.site.index_title = 'Yönetim Paneli İçerik'
+
+
+urlpatterns +=[
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT})]

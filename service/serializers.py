@@ -2,7 +2,7 @@ from rest_framework import serializers
 from rest_flex_fields import FlexFieldsModelSerializer
 
 from service.models import SehirModel, IlceModel, KategoriModel, AltKategoriModel, UrunModel, UrunOzellikleri, \
-    UrunFiyat, UrunResimler
+    UrunFiyat, UrunResimler,  AdresModel
 
 
 class SehirSerializer(FlexFieldsModelSerializer):
@@ -16,7 +16,17 @@ class IlceSerializer(FlexFieldsModelSerializer):
         model = IlceModel
         fields =('id','sehir','adi','aktifmi')
         expandable_fields = {
-            'sehir': (SehirSerializer, {'many': True})
+            'sehir': ('service.SehirSerializer', {'many': True})
+        }
+
+
+class AdresSerializer(FlexFieldsModelSerializer):
+    class Meta:
+        model = AdresModel
+        fields =('id','sehir','ilce','adres','yedekTelefon')
+        expandable_fields = {
+            'ilce': ('service.IlceSerializer', {'many': True}),
+            'sehir': ('service.SehirSerializer', {'many': True})
         }
 
 class KategoriSerializer(FlexFieldsModelSerializer):
@@ -24,12 +34,13 @@ class KategoriSerializer(FlexFieldsModelSerializer):
         model = KategoriModel
         fields = '__all__'
 
+
 class AltKategoriSerializer(FlexFieldsModelSerializer):
     class Meta:
         model = AltKategoriModel
         fields = ('id','kategoriId','adi')
         expandable_fields = {
-            'kategoriId': (KategoriSerializer, {'many': True})
+            'kategoriId': ('service.KategoriSerializer', {'many': True})
         }
 
 class UrunSerializer(FlexFieldsModelSerializer):
@@ -37,7 +48,7 @@ class UrunSerializer(FlexFieldsModelSerializer):
         model = UrunModel
         fields = ('id','kategoriId','adi','aciklama','aktifmi','stok')
         expandable_fields = {
-            'kategoriId': (KategoriSerializer, {'many': True})
+            'kategoriId': ('service.KategoriSerializer', {'many': True})
         }
 
 
@@ -67,19 +78,3 @@ class UrunFiyatSerializer(FlexFieldsModelSerializer):
         }
 
 
-"""
-class KampanyaSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = KampanyaModel
-        fields = '__all__'
-
-
-class KampanyaUrunSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = KampanayaUrun
-        fields = '__all__'
-
-class KargoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = KargoModel
-        fields = '__all__'"""

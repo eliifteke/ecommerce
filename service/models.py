@@ -143,6 +143,8 @@ class UrunResimler(BaseModel):
     urun = models.ForeignKey(UrunModel, on_delete=models.CASCADE, verbose_name="Ürün ")
     urunresim = models.ImageField(upload_to=file_urun_save, verbose_name="Ürün Resim ")
 
+
+
     class Meta:
         db_table = 'urunresimtb'
         verbose_name = "Ürün Galerisi"

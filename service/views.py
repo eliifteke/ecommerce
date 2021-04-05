@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_flex_fields.views import FlexFieldsMixin, FlexFieldsModelViewSet
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
+from rest_framework.filters import OrderingFilter, SearchFilter
 from rest_framework.viewsets import ReadOnlyModelViewSet
 
 from service.models import UrunFiyat, UrunOzellikleri, IlceModel, SehirModel, KategoriModel, AltKategoriModel, \
@@ -23,6 +24,7 @@ class AdresViewSet(viewsets.ModelViewSet):
     serializer_class = AdresSerializer
 
 
+
 class KategoriViewSet(viewsets.ModelViewSet):
     queryset = KategoriModel.objects.all()
     serializer_class = KategoriSerializer
@@ -31,12 +33,14 @@ class KategoriViewSet(viewsets.ModelViewSet):
 class AltKategoriViewSet(FlexFieldsModelViewSet):
     queryset = AltKategoriModel.objects.all()
     serializer_class = AltKategoriSerializer
-    permit_list_expands = ['kategoriId']
 
 
 class UrunViewSet(viewsets.ModelViewSet):
     queryset = UrunModel.objects.all()
     serializer_class = UrunSerializer
+    lookup_field = "slug"
+    filter_backends = [SearchFilter, OrderingFilter]
+    search_fields = ["adi"]
 
 
 class UrunResimlerViewSet(viewsets.ModelViewSet):
@@ -52,5 +56,4 @@ class UrunOzellikleriViewSet(viewsets.ModelViewSet):
 class UrunFiyatViewSet(viewsets.ModelViewSet):
     queryset = UrunFiyat.objects.all()
     serializer_class = UrunFiyatSerializer
-
 

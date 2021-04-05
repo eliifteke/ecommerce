@@ -6,7 +6,6 @@ from service.models import SehirModel, IlceModel, KategoriModel, AltKategoriMode
     UrunResimler, UrunFiyat, AdresModel
 
 
-
 class UrunGaleriInline(NestedStackedInline):
     model = UrunResimler
     extra = 5

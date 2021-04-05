@@ -1,80 +1,65 @@
 from rest_framework import serializers
-from rest_flex_fields import FlexFieldsModelSerializer
 
 from service.models import SehirModel, IlceModel, KategoriModel, AltKategoriModel, UrunModel, UrunOzellikleri, \
     UrunFiyat, UrunResimler,  AdresModel
 
 
-class SehirSerializer(FlexFieldsModelSerializer):
+class SehirSerializer(serializers.ModelSerializer):
     class Meta:
         model = SehirModel
         fields = '__all__'
 
 
-class IlceSerializer(FlexFieldsModelSerializer):
+class IlceSerializer(serializers.ModelSerializer):
     class Meta:
         model = IlceModel
-        fields =('id','sehir','adi','aktifmi')
-        expandable_fields = {
-            'sehir': ('service.SehirSerializer', {'many': True})
-        }
+        fields ='__all__'
 
 
-class AdresSerializer(FlexFieldsModelSerializer):
+class AdresSerializer(serializers.ModelSerializer):
     class Meta:
         model = AdresModel
-        fields =('id','sehir','ilce','adres','yedekTelefon')
-        expandable_fields = {
-            'ilce': ('service.IlceSerializer', {'many': True}),
-            'sehir': ('service.SehirSerializer', {'many': True})
-        }
+        fields ='__all__'
 
-class KategoriSerializer(FlexFieldsModelSerializer):
+class KategoriSerializer(serializers.ModelSerializer):
     class Meta:
         model = KategoriModel
         fields = '__all__'
+        lookup_field = "slug"
 
 
-class AltKategoriSerializer(FlexFieldsModelSerializer):
+class AltKategoriSerializer(serializers.ModelSerializer):
     class Meta:
         model = AltKategoriModel
-        fields = ('id','kategoriId','adi')
-        expandable_fields = {
-            'kategoriId': ('service.KategoriSerializer', {'many': True})
-        }
+        fields = '__all__'
 
-class UrunSerializer(FlexFieldsModelSerializer):
+
+
+
+class UrunSerializer(serializers.ModelSerializer):
     class Meta:
         model = UrunModel
-        fields = ('id','kategoriId','adi','aciklama','aktifmi','stok')
-        expandable_fields = {
-            'kategoriId': ('service.KategoriSerializer', {'many': True})
-        }
+        fields = '__all__'
+        lookup_field = "slug"
 
 
-class UrunResimlerSerializer(FlexFieldsModelSerializer):
+class UrunResimlerSerializer(serializers.ModelSerializer):
+    #urun = UrunSerializer(many=True)
+
     class Meta:
         model = UrunResimler
-        fields = ('id','urun')
-        expandable_fields = {
-            'urun': (UrunSerializer, {'many': True})
-        }
+        fields = '__all__'
 
-class UrunOzellikleriSerializer(FlexFieldsModelSerializer):
+
+class UrunOzellikleriSerializer(serializers.ModelSerializer):
     class Meta:
         model = UrunOzellikleri
-        fields = ('id','urun','aciklama')
-        expandable_fields = {
-            'urun': (UrunSerializer, {'many': True})
-        }
+        fields = '__all__'
 
 
-class UrunFiyatSerializer(FlexFieldsModelSerializer):
+
+class UrunFiyatSerializer(serializers.ModelSerializer):
     class Meta:
         model = UrunFiyat
-        fields = ('id', 'urun', 'satisfiyati')
-        expandable_fields = {
-            'urun': (UrunSerializer, {'many': True})
-        }
-
+        fields = '__all__'
 

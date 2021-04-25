@@ -12,4 +12,7 @@ class UserCreateForm(UserCreationForm):
 
 @admin.register(UserModel)
 class AdminUserModel(UserAdmin):
-    model = UserModel
+    list_display = ['id', 'username', 'role', 'profil']
+    class Meta:
+        model = UserModel
+

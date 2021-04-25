@@ -14,6 +14,12 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = '__all__'
 
 
+class UserImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserModel
+        fields = ['profil']
+
+
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
     @classmethod

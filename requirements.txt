@@ -17,6 +17,7 @@ djangorestframework-simplejwt==4.6.0
 drf-flex-fields==0.8.9
 drf-yasg==1.20.0
 et-xmlfile==1.0.1
+fcm-django==0.3.7
 idna==2.10
 inflection==0.5.1
 itypes==1.2.0
@@ -28,6 +29,7 @@ openpyxl==3.0.7
 packaging==20.9
 Pillow==8.1.2
 psycopg2==2.8.6
+pyfcm==1.4.9
 PyJWT==2.0.1
 pyparsing==2.4.7
 python-magic==0.4.22

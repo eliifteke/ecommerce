@@ -60,7 +60,7 @@ class AdresModel(BaseModel):
 
 def file_urun_save(intence, filename):
     filename = "urun/{}/{}".format(intence.urun.kategoriId.slug, intence.urun.slug, filename)
-    return os.path.join('urun', filename)
+    return os.path.join('urun',str(intence.urun),filename)
 
 
 class KategoriModel(BaseModel):

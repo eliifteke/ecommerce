@@ -44,7 +44,6 @@ class UrunSerializer(serializers.ModelSerializer):
 
 
 class UrunResimlerSerializer(serializers.ModelSerializer):
-    #urun = UrunSerializer(many=True)
 
     class Meta:
         model = UrunResimler

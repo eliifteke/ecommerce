@@ -29,7 +29,7 @@ class UserManager(BaseUserManager):
 
 def file_profil_save(intence, filename):
     filename = "kullanici/profil/{}/{}".format(intence.username, filename)
-    return os.path.join('usermodul', filename)
+    return os.path.join('usermodul', str(intence.id), filename)
 
 
 class UserModel(AbstractUser):

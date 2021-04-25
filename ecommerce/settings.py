@@ -28,6 +28,11 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+FCM_DJANGO_SETTINGS = {
+        "FCM_SERVER_KEY": "AAAAytzeCqI:APA91bFjFwDLKh9BkD6Mh97eCE0c4rv-4PNmdUIN5WfK9DmV3Dn7NW2xTjBTq8SvfOBJbsCrtDSOv3sofkGVdslqmO_6ocn4yyOouYBxul2m1X8V1vzA2brijQSOZ4A4S3JYGH5VvZ3D"
+}
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,7 +49,8 @@ INSTALLED_APPS = [
     'django_filters',
     'ckeditor',
     'nested_inline',
-    'import_export'
+    'import_export',
+    'fcm_django'
 ]
 
 MIDDLEWARE = [
@@ -68,6 +74,7 @@ CKEDITOR_CONFIGS = {
         'forcePasteAsPlainText': True,
     },
 }
+
 
 
 ROOT_URLCONF = 'ecommerce.urls'

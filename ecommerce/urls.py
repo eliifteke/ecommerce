@@ -21,7 +21,7 @@ from django.views.static import serve
 from ecommerce import settings
 
 urlpatterns = [
-    path('', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('auth/', include('authentication.urls')),
     path('service/', include('service.urls')),
     #path('api-auth/', include('rest_framework.urls'))

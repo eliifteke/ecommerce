@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -27,11 +26,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 FCM_DJANGO_SETTINGS = {
-        "FCM_SERVER_KEY": "AAAAytzeCqI:APA91bFjFwDLKh9BkD6Mh97eCE0c4rv-4PNmdUIN5WfK9DmV3Dn7NW2xTjBTq8SvfOBJbsCrtDSOv3sofkGVdslqmO_6ocn4yyOouYBxul2m1X8V1vzA2brijQSOZ4A4S3JYGH5VvZ3D"
+    "FCM_SERVER_KEY": "AAAAytzeCqI:APA91bFjFwDLKh9BkD6Mh97eCE0c4rv-4PNmdUIN5WfK9DmV3Dn7NW2xTjBTq8SvfOBJbsCrtDSOv3sofkGVdslqmO_6ocn4yyOouYBxul2m1X8V1vzA2brijQSOZ4A4S3JYGH5VvZ3D"
 }
-
 
 # Application definition
 
@@ -50,7 +47,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'nested_inline',
     'import_export',
-    'fcm_django'
+    'fcm_django',
+    'web.apps.WebConfig'
 ]
 
 MIDDLEWARE = [
@@ -63,7 +61,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
 CKEDITOR_CONFIGS = {
     'default': {
 
@@ -74,8 +71,6 @@ CKEDITOR_CONFIGS = {
         'forcePasteAsPlainText': True,
     },
 }
-
-
 
 ROOT_URLCONF = 'ecommerce.urls'
 AUTH_USER_MODEL = 'authentication.UserModel'
@@ -99,8 +94,7 @@ SIMPLE_JWT = {
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -114,7 +108,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ecommerce.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -143,7 +136,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -156,7 +148,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/

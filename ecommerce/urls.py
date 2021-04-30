@@ -18,21 +18,21 @@ from django.urls import path, include
 from django.conf.urls import url
 from django.views.static import serve
 
+from web import urls as web
 from ecommerce import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('authentication.urls')),
     path('service/', include('service.urls')),
-    #path('api-auth/', include('rest_framework.urls'))
+    path('', include(web))
+    # path('api-auth/', include('rest_framework.urls'))
 ]
-
 
 admin.site.site_title = 'Yönetim'
 admin.site.site_header = 'Yönetim Paneli'
 admin.site.index_title = 'Yönetim Paneli İçerik'
 
-
-urlpatterns +=[
+urlpatterns += [
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
-    url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT})]
+    url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATICFILES_DIRS})]

@@ -1,0 +1,81 @@
+/* ================================================
+--> Elements list_group style
+================================================== */
+.list-group-item {
+	border-radius: 0px!important;
+	font-size: 15px;
+	display: inline-block;
+	padding: 15px 0px;
+	color: $text-slider-title;
+	border: 0px;
+	margin: 0px;
+	border-bottom: 1px solid tint($text-slider-title, 25%);
+	&.active {
+		background-color: $primary-color;
+		border-color: $primary-color;
+		> a {
+			color: $white-color;
+		}
+	}
+	a {
+		display: block;
+		width: 100%;
+		&:hover {
+			.badge {
+				color: $primary-color;
+			}
+		}
+	}
+	i {
+		font-size: 14px;
+		margin-right: 8px;
+	}
+	.badge {
+		color: $text-slider-title;
+		float: right;
+		font-size: 15px;
+		font-weight: 400;
+		@include transition(color 0.3s ease);
+		&.badge-default {
+			color: $white-color;
+		}
+	}
+}
+
+.no-border {
+	.list-group-item {
+		border: none;
+		padding: 0px 0 20px;
+	}
+}
+
+.list-group-item-primary {
+	background-color: tint($primary-color, 75%);
+	a {
+		color: $primary-color;
+	}	
+}
+.list-group-item-success {
+	background-color: tint($success, 75%);
+	a {
+		color: $success;
+	}
+}
+.list-group-item-info {
+	background-color: tint($info, 75%);
+	a {
+		color: $info;
+	}
+}
+.list-group-item-warning {
+	background-color: tint($warning, 75%);
+	a {
+		color: $warning;
+	}
+}
+.list-group-item-danger {
+	background-color: tint($danger, 75%);
+	a {
+		color: $danger;
+	}
+}

@@ -1,0 +1,505 @@
+/*=== 15. USER PROFILE ===*/
+/*=== 15.1 COMMON PART ===*/
+%resetBtn{
+	box-shadow: none;
+	background-color: $light-color;
+	border: none;
+	border-radius: 0;
+}
+%panel-style{
+	border-radius: 0;
+	@include add-border(3px, $light-color, all);
+	box-shadow: none;
+	margin-bottom: 30px;
+	.panel-heading{
+		background-color: $light-color;
+		border-color: $light-color;
+		border-radius: 0;
+		.panel-title{
+			font-size: 15px;
+			margin-bottom: 0;
+			font-weight: 700; 
+			text-transform: capitalize;
+			color: #252525;
+		}
+	}
+	.panel-body{
+		address{
+			font-size: 13px;
+			line-height: 30px;
+			margin-bottom: 0;
+			strong{
+				font-size: 15px;
+				font-weight: 400;
+			}
+			span{
+				font-size: 15px;
+			}
+			a{
+				font-size: 15px;
+				color: $secondary-color;
+				@include transition(all 0.3s ease-in-out);
+				&:hover{
+					opacity: .8;
+				}
+			}
+			p{
+				line-height: 24px;
+				margin-bottom: 0;
+				color: $secondary-color;
+			}
+		}
+	}
+}
+.userProfile{
+	.btn-group{
+		margin-bottom: 30px;
+		display: block;
+		a{
+			float: none;
+			height: 45px;
+			padding: 0 20px;
+			line-height: 45px;
+			color: $secondary-color;
+			
+			font-weight: 700;
+			@extend %resetBtn;
+			@include transition(all 0.3s ease-in-out);
+			@include mobile-xs{
+				font-size: 10px;
+				padding: 0 10px;
+				margin: 0 5px 5px 0;
+			}
+			@include mobile{
+				font-size: 10px;
+				padding: 0 10px;
+				margin: 0 5px 5px 0;
+			}
+			@include tablet{
+				font-size: 12px;
+				padding: 0 15px;
+				margin: 0 5px 0 0;
+			}
+			@include desktops{
+				font-size: 14px;
+				padding: 0 20px;
+			}
+			i{
+				margin-right: 10px;
+			} 
+			&:hover, &.active{
+				background-color: $primary-color;
+				color: $white-color;
+			}
+		}
+	}
+	.innerWrapper{
+		width: 100%;
+		display: block;
+		@include add-border(3px, $light-color, all);
+		padding: 30px;
+		@include mobile{
+			margin-bottom: 90px;
+		}
+		@include tablet{
+			margin-bottom: 30px;
+		}
+		.alert{
+			border: none;
+			border-radius: 0;
+			font-size: 15px;
+			color: $secondary-color;
+			padding: 25px 30px;
+			margin-bottom: 40px;
+			.close {
+				padding: 5px 12px;
+			}
+		}
+		h3{
+			font-weight: 400;
+			text-transform: capitalize;
+			margin-bottom: 15px;
+			span{
+				color: $primary-color;
+			}
+		}
+		p{
+			font-size: 14px;
+			color: #888888;
+			line-height: 22px;
+			margin-bottom: 40px+5px; 
+		}
+		.list-inline{
+			display: block;
+			margin-bottom: 50px;
+			li{
+				@include mobile-xs{
+					padding: 0;
+					display: block;
+					margin-bottom: 10px;
+				}
+				@include mobile{
+					padding: 0;
+					display: block;
+					margin-bottom: 10px;
+				}
+				@include tablet{
+					padding: 0 10px 0 0;
+					display: inline-block;
+					margin: 0
+				}
+				@include desktops{
+					padding: 0 20px 0 0;
+				}
+				.btn-lg{
+					color: $text-slider-title;
+					font-weight: 700;  
+					@extend %resetBtn;
+					@include transition(all 0.3s ease-in-out);
+					@include mobile-xs{
+						width: 100%;
+						padding: 47px 0;
+						font-size: 16px;
+					}
+					@include mobile{
+						width: 100%;
+						padding: 47px 0;
+						font-size: 16px;
+					}
+					@include tablet{
+						width: 120px;
+						padding: 31px 0;
+						font-size: 14px;
+					}
+					@include desktops{
+						width: 156px;
+						padding: 47px 0;
+						font-size: 16px;
+					}
+					@include large-desktops{
+						width: 196px;
+						padding: 67px 0;
+						font-size: 18px;
+					}
+					i{
+						display: block;
+						margin-bottom: 20px;
+					}
+					&:hover{
+						background-color: $primary-color;
+						color: $white-color;
+					}
+				}
+				&:last-child{
+					padding: 0;
+				}
+			}
+		}
+		.panel{
+			@extend %panel-style;
+		}
+		&.singleOrder{
+			.orderBox{
+				margin-bottom: 0;
+			}
+			.btn-group{
+				margin-bottom: 30px;
+				float: left;
+				.btn-default{
+					border-radius: 0;
+					border: none;
+					background-color: $primary-color;
+					padding: 0 20px;
+					color: $white-color;
+					font-size: 12px;
+					font-weight: 700;
+					text-transform: uppercase;
+					height: 40px;
+					line-height: 40px;
+					@include transition(all 0.3s ease-in-out);
+					&:hover{
+						opacity: .8;
+					}
+					@include mobile-xs{
+						display: block;
+						width: 100%;
+						margin: 0 0 15px 0;
+					}
+					@include mobile{
+						display: inline-block;
+						width: auto;
+						margin-right: 0px;
+					}
+					@include tablet {
+						margin-right: 5px;
+					}
+				}
+			}
+			.panel-title {
+				height: 50px;
+				line-height: 50px;
+				padding-left: 40px;
+				font-weight: 400!important;
+				font-size: 16px!important;
+			}
+			.panel-body {
+				padding: 30px 40px;
+			}
+		}
+	}
+}
+.orderBox{
+	display: block;
+	margin-bottom: 50px;
+	h4{
+		font-weight: 400;
+		text-transform: capitalize;
+		font-size: 20px;
+		margin-bottom: 20px;
+		font-weight: 700;
+	}
+	h2 {
+		font-size: 30px;
+		margin-bottom: 25px;
+		text-transform: capitalize;
+	}
+	.table-responsive{
+		margin-bottom: 0;
+		@include mobile{
+			overflow-x: auto;
+		}
+		@include tablet{
+			overflow-x: visible;
+		}
+		.table{
+			margin-bottom: 0;
+			thead{
+				tr{
+					@include add-border(3px, $primary-color, right-left);
+					th{
+						@extend %tableHead;
+						border-width: 0px;
+						@include mobile-xs{
+							padding: 10px;
+							text-align: center;
+							font-size: 12px;
+						}
+						@include mobile{
+							padding: 10px;
+							text-align: center;
+							font-size: 12px;
+						}
+						@include tablet{
+							padding: 10px 10px 10px 20px;
+							text-align: left;
+							font-size: 15px;
+						}
+					}
+				}
+			}
+			tbody{
+				tr{
+					@include add-border(3px, $light-color, right-left);
+					td{
+						@extend %tableData;
+						text-transform: capitalize;
+						padding-left: 5px;
+						font-weight: 400;
+						@include tablet {
+							padding-left: 20px;
+						}
+						.btn-sm{
+							font-size: 13px;
+							padding: 0px;
+							width: 80px;
+							font-weight: 700;
+							height: 40px;
+							line-height: 40px;
+							&:hover{
+								background-color: $primary-color;
+								color: $white-color;
+								border-color: $primary-color;
+							}
+						}
+						
+						&:last-child{
+							text-align: right;
+							padding-right: 8px;
+							@include tablet {
+								padding-right: 20px;
+							}
+						}
+						&:first-child{
+							color: $primary-color;
+							.fa{
+								color: $secondary-color !important;
+							}
+						}
+						span.badge {
+							font-size: 11px;
+							border-radius: 0px;
+							padding: 5px 10px;
+							&.badge-primary {
+								background: #337ab7;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	&.myAddress{
+		margin-bottom: 10px;
+		.table-responsive{
+			.table{
+				thead{
+					tr{
+						th{
+							font-size: 16px;
+						}
+					}
+				}
+				tbody{
+					tr{
+						border: none;
+						td{
+							font-size: 13px;
+							&:first-child{
+								color: $secondary-color;
+							}
+							.btn-default{
+								padding: 13px 14px;
+								border: none;
+								background: transparent;
+								color: $secondary-color;
+							}
+							.close{
+								@extend %closeBtn;
+							}
+						}
+						&:last-child{
+							td{
+								border: none;
+							}	
+						}
+					}
+				}
+			}
+		}
+		&.wishList{
+			.table-responsive{
+				.table{
+					thead{
+						tr{
+							th{
+								&:first-child{
+									@include mobile-xs{
+										display: none;
+									}
+									@include mobile{
+										display: none;
+									}
+									@include tablet{
+										display: table-cell;
+									}
+								}
+							}
+						}
+					}
+					tbody{
+						tr{
+							td{
+								font-size: 16px;
+								&:nth-child(4){
+									color: $primary-color;
+								}
+								
+								.btn-sm {
+									width: auto;
+									padding: 0 20px;
+								}
+								&:first-child{
+									@include mobile-xs{
+										display: none;
+									}
+									@include mobile{
+										display: none;
+									}
+									@include tablet{
+										display: table-cell;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/*=== 15.2 PROFILE ===*/
+%commonBtn{
+	height: 45px;
+	font-weight: 700;
+	color: $white-color;
+	font-size: 13px;
+	letter-spacing: 1px;
+	padding: 0 15px;
+	border-radius: 0;
+	background-color: $primary-color;
+	border: none;
+	@include transition(all 0.3s ease-in-out);
+	&:hover{
+		opacity: .8;
+		border: 0px!important;
+	}
+}
+.profile{
+	.orderBox{
+		margin-bottom: 25px;
+	}
+	.thumbnail{
+		img{
+			width: 100%;
+		}
+		.caption{
+			.btn-primary{
+				@extend %commonBtn;
+				margin-top: 20px;
+				margin-bottom: 40px;
+				line-height: 45px;
+			}
+		}
+	}
+	.form-horizontal{
+		.form-group{
+			@include mobile{
+				margin-bottom: 0px;
+			}
+			@include tablet{
+				margin-bottom: 0px;
+			}
+			.control-label{
+				font-size: 13px;
+				padding-top: 0;
+				font-weight: 700;
+				margin-top: 3px;
+				@include tablet{
+					padding-left: 30px;
+					text-align: right;
+				}
+				@include desktops {
+					padding-left: 0px;
+					margin-top: 10px;
+				}
+			}
+			.form-control{
+				@extend %formFieldPart;
+			}
+			.btn-primary{
+				@extend %commonBtn;
+			}
+		}
+	}
+}

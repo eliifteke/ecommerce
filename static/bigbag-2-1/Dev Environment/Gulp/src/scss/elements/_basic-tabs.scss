@@ -1,0 +1,232 @@
+/* ================================================
+--> Elements tabs style
+================================================== */
+.icon_tabs {
+	margin-top: 25px;
+	border: none;
+	display: block;
+	@include tablet {
+		justify-content: center;
+		display: flex;
+	}
+	.nav-item {
+		border: none;
+		display: block;
+	    text-align: left!important;
+	    margin-bottom: 10px;
+	    @include tablet {
+	    	margin-bottom: 0px;
+	    	text-align: center!important;
+	    }
+	    @include desktops {
+	    	display: inline-block;
+	    	margin: 0 5px;
+	    }
+		a.nav-link {
+			@include box-shadow(0px, 3px, 12px, rgba(0, 0, 0, 0.08));
+			border: none;
+		    border-radius: 0px;
+		    background: #fff;
+		    position: relative;
+		    color: $secondary-color;
+		    white-space: nowrap;
+		    padding: 25px;
+		    @include tablet {
+				padding: 20px 0px;
+		    }
+		    @include desktops {
+				padding: 25px 0px;
+		    }
+		    @include large-desktops {
+				padding: 40px 0px;
+		    }
+		    &:before {
+			    content: '';
+			    position: absolute;
+			    bottom: 0;
+			    left: 0;
+			    right: 0;
+			    opacity: 0;
+			    @include transition(all 0.3s ease);
+			    border-bottom: 4px solid $primary-color;
+			}
+			i {
+				font-size: 26px;
+				color: #848484;
+				float: left;
+				line-height: 20px; 
+				@include tablet {
+					float: unset;
+					font-size: 30px;
+    				padding-bottom: 14px;
+				} 
+				@include desktops {
+					float: unset;
+					font-size: 40px;
+					padding-bottom: 20px;
+				}
+				@include transition(all 0.3s ease);
+			}
+			h3 {
+				text-transform: capitalize;
+				display: inline-block;
+				margin-left: 15px;
+				font-size: 18px;
+				@include tablet {
+					display: block;
+					margin-left: 0px;
+					font-size: 15px;
+				}
+				@include desktops {
+					font-size: 18px;
+				}
+			}
+			&:hover, &.active {
+				&:before {
+					opacity: 1;
+				}
+				.fa {
+					color: $primary-color;
+				}
+			}
+		}
+	}
+}
+// Border bottom styled nav tabs ===============================
+.nav-tabs.bar-tabs {
+	flex-direction: row;
+	.nav-item {
+		margin-bottom: 0px;
+	}
+	.nav-link {
+		border-radius: 0px;
+		position: relative;
+		display: inline-block;
+		padding: 10px 25px;
+		padding-bottom: 15px!important;
+		background-color: transparent!important; 
+		margin-right: 0px;
+		color: $secondary-color;
+		border: none!important;
+		
+		&.active {
+			h5 {
+				@include transition(all 0.3s ease);
+				color: $primary-color;
+			}
+			&:before {
+				position: absolute;
+				content: '';
+				bottom: 0;
+				left: 0;
+				border-bottom: 3px solid $primary-color;
+				width: 100%;
+			}
+		}
+	}
+}
+
+.tab-content {
+	.active {
+	    padding: 25px 0;
+	}
+}
+.nav-tabs {
+	.nav-item {
+		@include tablet {
+    		margin-bottom: -1px;
+		}
+    }
+}
+.tab-content.tab-bordered {
+	.active {
+	    border: 1px solid #e5e5e5;
+	    border-top: 0px solid transparent;
+	    padding: 25px;
+	}
+}
+
+.nav-unbordered {
+	&.nav-tabs {
+		border-bottom: 0px;
+		.nav-item {
+			padding: 10px 25px 10px 0;
+			.nav-link {
+				border: 0px;
+				padding: 0px;
+				font-size: 18px;
+				background-color: transparent;
+				text-transform: capitalize;
+				position: relative;
+				display: inline-block;
+			}
+			.nav-link.active {
+			    color: #7bd1df;
+			    background-color: transparent;
+			    &:before {
+			    	content: '';
+			    	position: absolute;
+			    	width: 100%;
+					border-bottom: 2px solid #7bd1df;
+					bottom: -8px;
+			    }
+			}
+		}
+	}
+}
+.nav.nav-tabs {
+	flex-direction: column;
+	@include mobile {
+		flex-direction: row;
+		justify-content: space-between;
+		-ms-flex-preferred-size: 0;
+		flex-basis: 0;
+	-ms-flex-positive: 1;
+		flex-grow: 1;
+	text-align: center;
+	}
+	@include tablet {
+		flex-direction: unset;
+	}
+}
+
+// ==================== Vertical Tabs =====================
+.nav-stacked {
+    -webkit-flex-direction: column!important;
+    -ms-flex-direction: column!important;
+    flex-direction: column!important;
+}
+.nav-tabs.nav-stacked {
+    margin-right: 0;
+    border-bottom: 0;
+    border-right: none;
+    @include tablet {
+    	border-right: 1px solid $border-light;
+    	padding-right: 0;
+    }
+}
+.nav-tabs.nav-stacked {
+	.nav-item {
+	  margin: 0 !important;
+	  float: none !important;
+	  display: block !important;
+	  .nav-link {
+	  		padding: 10px 15px;
+	  		margin-right: 0px;
+	  		border-right: 0px;
+	  		i {
+	  			padding-right: 10px;
+	  		}
+		  	&.active {
+		  		border-top-color: $border-light;
+		  		border-top-width: 1px;
+		  		bottom: 0;
+
+		  		@include tablet {
+		  			margin-right: -1px;
+		  			border-right-color: #fff !important;
+		  		}
+		  	}
+	  	}
+	} 
+}

@@ -1,0 +1,57 @@
+/* ================================================
+--> Elements Badge style
+================================================== */
+.display-single_element.element_badge {
+	p {
+		margin-bottom: 10px;
+		font-size: 15px;
+		margin-top: 0px;
+	}
+	 h1, h2, h3, h4, h5 {
+    	margin: 0 0 15px;
+	}
+    h1 {
+        display: none;
+        @include tablet {
+            display: block;
+        }
+    }
+    .btn {
+        text-transform: capitalize;
+        margin-right: 15px; 
+    }
+}
+.btn {
+    .badge {
+        margin-left: 5px;
+    }
+}
+.badge {
+    padding: 5px;
+    font-weight: 400;
+    font-size: 12px;
+}
+.badge-default {
+    background-color: #323f41;
+    color: $white-color!important;
+}
+.badge-primary {
+    background-color: $primary-color;
+    color: $white-color!important;
+}
+.badge-success {
+    background-color: $success;
+    color: $white-color!important;
+}
+.badge-info {
+    background-color: $info;
+    color: $white-color!important;
+}
+.badge-warning {
+    background-color: $warning;
+    color: $white-color!important;
+}
+.badge-danger {
+    background-color: $danger;
+    color: $white-color!important;
+}

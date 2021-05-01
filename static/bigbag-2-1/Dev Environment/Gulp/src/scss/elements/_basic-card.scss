@@ -1,0 +1,141 @@
+/*==================================
+card
+====================================*/
+#cards_element {
+	.card {
+		margin-bottom: 30px;
+		.display-single_element {
+			p {
+				margin-bottom: -10px;
+			}
+		}
+	}
+}
+.card {
+	border: 0px;
+	border-radius: 0px;
+	// background-color: transparent;
+	overflow: hidden;
+	.card_img {
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+	}
+	.card-img {
+		border-radius: 0px;
+	}
+	.card-title {
+		margin: 0px;
+		padding: 15px 0 10px;
+		@include transition(all 0.3s ease);
+		&:hover {
+			color: $primary-color;
+		}
+	}
+	.card-block {
+		padding: 0;
+		p.card-text {
+			padding: 15px 0px;
+		}
+	}
+
+	&.img-mid {
+		.card_img {
+			padding: 20px 0 20px;
+		}
+		.card-title {
+			padding-top: 0px;
+		}
+		.card-block {
+			padding: 0;
+			p.card-text {
+				padding: 0px 0px 15px;
+			}
+		}
+	}
+	&.img-bottom {
+		.card_img {
+			padding-top: 25px;
+		}
+		.card-title {
+			padding-top: 0px!important;
+		}
+	}
+	.card-img-overlay {
+		p.card-text {
+			color: $white-color;
+		}
+	}
+	&.card-inverse {
+		&:before {
+		    position: absolute;
+		    content: '';
+		    top: 0;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+		    background: rgba(20,20,20,0.7);
+		}
+	}
+	ul.list-inline {
+		li {
+			margin-right: 10px;
+			&:last-child {
+				margin-right: 0px;
+			}
+			i {
+				margin-right: 5px;
+			}
+		}
+	}
+	&.text-white {
+		.card-title, .card-text {
+			color: $white-color;
+		}
+	}
+	&.card-body {
+		border: 1px solid $light-color;
+	}
+
+	//card ribbon
+	.card-ribbon {
+	    width: 200px;
+	    padding: 2px 5px;
+	    position: absolute;
+	    text-align: center;
+	    font-size: 12px;
+	    z-index: 1;
+	    &.card-ribbon-top {
+	        top: 20px;
+	        &.card-ribbon-left {
+			    -webkit-transform: rotate(-45deg);
+			    -ms-transform: rotate(-45deg);
+			    transform: rotate(-45deg);
+			}
+	        &.card-ribbon-right {
+			    -webkit-transform: rotate(45deg);
+			    -ms-transform: rotate(45deg);
+			    transform: rotate(45deg);
+			}
+	    }
+	    &.card-ribbon-bottom {
+	        bottom: 20px;
+	        &.card-ribbon-left {
+			    -webkit-transform: rotate(45deg);
+			    -ms-transform: rotate(45deg);
+			    transform: rotate(45deg);
+			}
+	        &.card-ribbon-right {
+			    -webkit-transform: rotate(-45deg);
+			    -ms-transform: rotate(-45deg);
+			    transform: rotate(-45deg);
+			}
+	    }
+	    &.card-ribbon-left {
+	        left: -70px;
+	    }
+	    &.card-ribbon-right {
+		    right: -70px;
+		}
+	}
+}

@@ -1,0 +1,208 @@
+/*=== 6. MODAL ===*/
+/*=== 6.1 LOGIN MODAL ===*/
+%modal-common{
+	@include border-radius(0);
+	box-shadow: none;
+	border: none;
+}
+%productInfo{
+	overflow: visible;
+	h3{
+		font-weight: 700;
+		margin-bottom: 7px;
+		letter-spacing: 1px;
+		font-size: 24px;
+		color: $text-slider-title;
+	}
+	h3{
+		margin-bottom: 20px+6px;
+	}
+	p{
+		font-size: font-size+3px;
+		line-height: 24px;
+		color: $text-slider-title;
+		margin-bottom: 30px+7px; 
+	}
+	.quick-drop{
+		margin: 0 12px 30px+8px 0;
+		display: inline-block;
+	}
+	.btn-area{
+		display: block;
+		width: 100%;
+		.btn-primary {
+			padding: 0 30px;
+			font-weight: 400;
+			width: 196px;
+			height: 55px;
+			line-height: 55px;
+			font-size: 13px;
+			text-align: left;
+			@include transition(all 0.3s ease-in-out);
+			position: relative;
+			i{
+				position: absolute;
+				right: 20px;
+				top: 16px;
+				font-size: 22px;
+			}
+			&:hover {
+				background: rgba($primary-color ,.8) !important;
+			}
+		}
+	}
+}
+%full-modal{
+	
+	margin: 30px auto 0 auto;
+	.modal-content{
+		@extend %modal-common;
+		.modal-header{
+			background-color: $primary-color;
+			.modal-title{
+				text-align: center;
+				color: $white-color;
+				font-weight: 700;
+				text-transform: uppercase;
+			}
+			.close{
+				opacity: 1;
+				color: $white-color;
+				position: absolute;
+				right: 0px;
+				top: 0;
+				font-size: 30px;
+				cursor: pointer;
+				padding: 0px 10px 5px;
+				&:hover, &:focus{
+					opacity: .6;
+					outline: none;
+				}
+			}
+		}
+		.modal-body{
+			@extend .form-field;
+		}
+	}
+	@include mobile-xs{
+		width: 270px;
+	}
+	@include mobile{
+		width: 430px;
+	}
+}
+#login{
+	.modal-dialog{
+		@extend %full-modal;
+	}
+}
+#signup{
+	.modal-dialog{
+		@extend %full-modal;
+		.modal-body{
+			form{
+				.btn-primary{
+					// margin-bottom: 15px;
+				}
+			}
+		}
+	}
+}
+
+/*=== 6.2 PORDUCT QUICK VIEW MODAL ===*/
+.quick-view, .quick-view-drone {
+	.modal-dialog{
+		@include mobile-xs{
+		  max-width: 280px;
+		  margin: 0 auto;
+		}
+		@include mobile{
+		  max-width: 450px;
+		  margin: 0 auto;
+		}
+		@include tablet{
+		  max-width: 750px;
+		}
+		@include desktops{
+		  max-width: 950px;
+		}
+		@include large-desktops{
+		  max-width: 1030px;
+		}
+		.modal-content{
+			@extend %modal-common;
+			.modal-body{
+				padding: 30px;
+				.close{
+					font-size: 25px;
+					margin: 0;
+					position: absolute;
+					top: -5px;
+					right: 0px;
+					padding: 5px 10px;
+					opacity: .2;
+					font-weight: 300;
+					&:hover, &:focus {
+						outline: none;
+					}
+					@include tablet {
+						font-size: 34px;
+					}
+					@include desktops {
+						font-size: 55px;
+					}
+				}
+				.media{
+					margin-top: 0;
+					margin-right: 20px;
+					@include desktops{
+						margin-right: 0;
+					}
+					.media-left{
+						@include mobile{
+							width: 100%;
+							padding-bottom: 20px;
+						}
+						@include tablet{
+							width: 100%;
+
+						}
+						@include desktops{
+							padding-bottom: 0;
+							padding-right: 40px;
+							width: auto;
+						}
+						img{
+							width: 100%;
+							padding-bottom: 20px;
+							@include desktops{
+								padding-right: 40px;
+								padding-bottom: 0;
+							}
+						}
+					}
+					.media-body{
+						@extend %productInfo;
+						h2{
+							text-transform: uppercase;
+							font-weight: 700;
+							margin-bottom: 10px;
+						}
+						h3{
+							color: $secondary-color;
+						}
+						.btn-area{
+							.btn-primary{
+								font-size: 14px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.quick-view .modal-dialog .modal-content .modal-body .media .media-body .btn-area .btn-primary, 
+.singleProduct .media .media-body .btn-area .btn-primary{
+	color:white;
+}

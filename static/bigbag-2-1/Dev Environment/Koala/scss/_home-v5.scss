@@ -1,0 +1,366 @@
+/*================= 3.4 HOME V5 ==================*/
+.version5 .main-wrapper {
+	overflow-x: hidden;
+}
+.home-v5 {
+	padding: 0px!important;
+	.media, .card {
+		h4 {
+			font-size: 20px;
+			margin-bottom: 10px;
+			font-weight: 400;
+			@include desktops {
+				font-size: 22px;
+				margin-bottom: 20px;
+			}
+		}
+		p {
+			color: $text-slider-title;
+			font-size: 13px;
+			line-height: 26px;
+			margin: 0px;
+			@include desktops {
+				font-size: 14px;
+			}
+		}
+	}
+
+	.icon-box {
+		display: inline-block;
+		width: 60px;
+		height: 60px;
+		line-height: 56px;
+		border-radius: 50%;
+		color: $primary-color;
+		text-align: center;
+		font-size: 24px;
+		border: 2px solid rgba($secondary-color, 0.1);
+	}
+
+	.promo-video-holder {
+		border: 2px solid $white-color;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		margin-top: 50px;
+	}
+	.promo-video{
+		position: relative;
+		width: 100%;
+		float: none;
+		overflow: hidden;
+		max-height: 400px;
+		padding-top: 100%;
+		&:before {
+			background-color: rgba(10,35,59,0);
+		}
+		@include tablet {
+			max-height: 500px;
+			width: 100%;
+			float: left;
+			position: relative;
+			margin: 0px;
+			padding-top: 80%;
+		}
+		@include desktops {
+			padding-top: 62.54%;
+		}
+		.video-button a{
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+			iframe {
+				width: 100%;
+				height: 100%;
+				border: none;
+			}
+			i {
+				position: relative;
+				height: 80px;
+				width: 80px;
+				line-height: 80px;
+				font-size: 30px;
+				background: $primary-color;
+				border-radius: 50%;
+				display: inline-block;
+				color: $white-color;
+				padding-left: 10px;
+				text-align: center;
+				border: 2px solid $primary-color;
+				@include transition(transform 0.3s ease);
+			}
+			&:hover {
+				i {
+					@include transform(scale(1.1));
+				}
+			}
+		}
+	}
+
+	.sectionTitle {
+		h2 {
+			font-size: 24px;
+			line-height: 34px;
+			margin-bottom: 15px;
+			&:after {
+				display: none;
+			}
+			@include desktops {
+				font-size: 32px;
+				line-height: 40px;
+			}
+		}
+		p {
+			padding-bottom: 50px;
+			font-size: 13px;
+			line-height: 26px;
+			margin: 0;
+			color: $text-slider-title;
+			@include desktops {
+				font-size: 14px;
+			}
+		}
+	}
+	.aboutSection {
+		padding: 90px 0;
+		margin: 0px;
+		&.bg-image {
+			&:before {
+				background-color: rgba(255, 255, 255, 0.90);
+			}
+		}
+		a.primary-btn {
+			margin-top: 15px;
+			font-size: 13px;
+			width: 148px;
+			height: 40px;
+			line-height: 40px;
+			background: $primary-color;
+			color: $white-color;
+			padding: 0;
+			@include desktops {
+				width: 178px;
+				height: 50px;
+				line-height: 50px;
+				font-size: 14px;
+			}
+			i {
+				padding-left: 8px;
+			}
+		}
+	}
+	.featureSection {
+		padding: 90px 0;
+		.media {
+			.icon-box {
+				margin-right: 20px;
+				@include tablet {
+					margin-right: 30px;
+				}
+			}
+		}
+	}
+	
+	.cta {
+		height: 250px;
+		@include tablet {
+			height: 350px;
+		}
+		@include desktops {
+			height: 450px;
+		}
+		@include large-desktops {
+			height: 500px;
+		}
+		.video-holder {
+			text-align: center;
+			color: $white-color;
+			h1 {
+				color: $white-color;
+				font-weight: 700;
+				font-size: 22px;
+				margin-bottom: 15px;
+				@include tablet {
+					font-size: 32px;
+					letter-spacing: 1px;
+					margin-bottom: 20px;
+				}
+				@include desktops {
+					font-size: 40px;
+					letter-spacing: 2px;
+					margin-bottom: 25px;
+				}
+			}
+			p {
+				color: inherit;
+				font-size: 13px;
+				line-height: 20px;
+				@include tablet {
+					font-size: 14px;
+					line-height: 26px;
+				}
+
+			}
+			a {
+				width: 50px;
+				height: 50px;
+				display: inline-block;
+				line-height: 44px;
+				font-size: 18px;
+				border: 3px solid $white-color;
+				border-radius: 50%;
+				color: $white-color;
+				margin-top: 8px;
+				@include tablet {
+					line-height: 64px;
+					font-size: 24px;
+					width: 70px;
+					height: 70px;
+					margin-top: 15px;
+				}
+				i {
+					padding-left: 5px;
+				}
+			}			
+		}
+	}
+
+	.moreFeatures {
+		padding: 90px 0;
+	}
+	.testimonial-section {
+		padding: 90px 0;
+		&:before {
+			background: rgba(245,245,245,0.92);
+		}
+		.card {
+			background: transparent;
+			border: none;
+			border-radius: 0px;
+			.image-box {
+				width: 90px;
+				height: 90px;
+				border-radius: 50%;
+			}
+			.card-title {
+				margin-bottom: 05px;
+			}
+			small {
+				color: $primary-color;
+				display: inline-block;
+				font-size: 13px;
+			}
+			p {
+				margin-top: 20px;
+			}
+		}
+	}
+
+	.accessories {
+		padding: 90px 0;
+		.sectionTitle p {
+			padding-bottom: 25px;
+		}
+		.featuredProducts {
+			margin-bottom: 0px;
+			.slide {
+				margin-bottom: 0px;
+				margin-top: 25px;
+				text-align: center;
+				@include tablet {
+					text-align: left;
+				}
+				.productCaption h4 {
+					font-weight: 400;
+				}
+				h3 {
+					margin-bottom: 20px;
+					@include tablet {
+						margin-bottom: 0px;
+					}
+				}
+			}
+		} 
+	}
+
+	.gallery {
+		padding: 90px 0;
+		background: #f5f5f8;
+		.productGallery {
+			margin-bottom: 0px;
+			.slide {
+				margin-bottom: 0px;
+				.productImage {
+					margin-bottom: 0px;
+				}
+				.productMasking a {
+					color: #fff;
+					font-size: 16px;
+					width: 50px;
+					height: 50px;
+					border: 2px solid #fff;
+					display: inline-block;
+					text-align: center;
+					line-height: 46px;
+					border-radius: 50%;
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					transform: translate(-50%, -50%);
+				}	
+			}
+			button.slick-arrow {
+				top: 50%;
+				&.slick-prev {
+					left: -25px;
+					right: auto;
+				}
+				&.slick-prev:after {
+					display: none;
+				}
+				&.slick-next {
+					right: -25px;
+				}
+				&.slick-prev:before, &.slick-next:before {
+					font-size: 16px;
+				}
+			}
+		}
+	}
+
+	.order {
+		background: $primary-color;
+		padding: 80px 0;
+		h2 {
+			color: $white-color;
+			font-weight: 700;
+		}
+		p {
+			padding-bottom: 30px;
+			color: $white-color;
+		}
+		.order-btn {
+			height: 40px;
+			width: 160px;
+			font-size: 14px;
+			line-height: 40px;
+			color: $secondary-color;
+			background: $white-color;
+			padding: 0;
+			@include desktops {
+				height: 50px;
+				width: 178px;
+				line-height: 50px;
+			}
+			i {
+				padding-left: 8px;
+				font-size: 14px;
+			}
+		}
+	}
+}
+

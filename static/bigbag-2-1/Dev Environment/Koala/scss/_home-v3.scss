@@ -1,0 +1,267 @@
+/*================= 3.3 HOME V3 ==================*/
+
+/*=== 3.3.1 DEAL SECTION ===*/
+
+.dealSlider{
+	margin-bottom:80px;
+	.imageBox{
+		border:1px solid #d5d5d5;
+		margin: 1px;
+	}
+	.productDeal{
+		padding:20px 15px;
+		h3{
+		   font-size: 20px;
+		   font-weight: 400;
+		   margin: 0;
+		   text-transform: capitalize;
+		   display: inline-block;
+		   @include tablet {
+		    	font-size: 15px;
+		    }
+		    @include desktops {
+		    	font-size: 20px;
+		    }
+		   span{
+		   	color: $primary-color;
+		   	font-weight: 700;
+		   }
+		}
+		.rating{
+			display: inline-block;
+			float: right;
+			color: #d5d5d5;
+			@include transition(all 0.3s ease);
+		}
+	}
+	.productCaption{
+		h3{
+		   font-size: 20px;
+		   font-weight: 400;
+		   margin-bottom: 20px;
+		   text-transform: capitalize;
+		   a{
+		   		color: $secondary-color;
+		   }
+		}
+		.btn-border{
+			padding-left:25px;
+    		padding-right:25px;
+			border-color:$primary-color;
+			margin-bottom: 50px;
+			border: 2px solid;
+			color: $primary-color;
+			font-size: 15px;
+			letter-spacing: 1px;
+			font-weight: 700;
+			line-height: 36px;
+			i{
+				padding-left: 8px;
+				color: $primary-color;
+			}
+		}
+	}
+}
+.dealSlider .imageBox:hover{
+	.productDeal{
+		.rating{
+			color: $primary-color;
+		}
+	}
+	.productCaption{
+		.btn-border{
+			background-color: $primary-color;
+			color: $white-color;
+			i{
+				color: $white-color;
+			}
+		}
+	}
+	.productImage img{
+		@include transform(scale(1.2));
+	}
+}
+
+/*=== 3.3.2 FEATURE PRODUCT SECTION  ===*/
+.version3.featuredProducts{
+	margin-bottom:40px;
+}
+.tabCommon {
+	.nav.nav-tabs {
+		flex-direction: row;
+		justify-content: center;
+		border-bottom: 3px solid #ddd;
+		@include tablet {
+			justify-content: flex-start;
+		}
+		li {
+			display: inline-block;
+			margin-left: 12px;
+			margin-right: 12px;
+			@include tablet {
+				margin-left: 0px;
+				margin-right: 20px;
+			}
+			a {
+				color: #252525;
+				display: block;
+				padding: 10px 0;
+				font-size: 14px;
+				text-transform: uppercase;
+				font-weight: 700;
+				position: relative;
+				@include tablet {
+					font-size: 16px;
+				}
+				&.active:before {
+					content: '';
+					width: 100%;
+					height: 3px;
+					bottom: -3px;
+					left: 0;
+					position: absolute;
+					background: $primary-color;
+				}
+			}
+		}
+	}
+}
+// .version3 .imageBox .productImage .productMasking{
+// 	ul{
+// 		height: auto;
+// 		margin-top: 0;
+		
+// 	}
+// }
+
+/*=== 3.3.3 FEATURES ===*/
+.version2 .box{
+	background-color:transparent;
+	border: 3px solid #e4e4e4;
+	@include transition(all 0.3s ease);
+	&:hover{
+		border: 3px solid $primary-color;
+	}
+}
+
+/*=== 3.3.4 TESTIMONIAL SECTION ===*/
+.testimonialSection{
+	margin-bottom:50px;
+	@include tablet {
+    	margin-bottom:0;
+	}
+	.testimonialSlider {
+		button.slick-arrow {
+			top: 100px;
+			right: 50px;
+			z-index: 55;
+			&:after {
+				right: -3px;
+				top: -1px;
+			
+			}
+			&.slick-prev {
+				right: 75px;
+			}
+			&:before {
+				color: #d5d5d5;
+			}
+		}
+	}
+}
+.testimonial-inner{
+	background-color:#f5f5f5;
+	padding:15px;
+	width:100%;
+	float:left;
+	@include tablet {
+    	padding:50px;
+    }
+	.testimonialImage{
+		background-color:$white-color;
+		@include box-shadow(0, 2px, 3px,rgba(#000,0.15));
+		width: 30%;
+		float: left;
+		padding:30px 0;
+		margin-right: 15px;
+		@include tablet {
+	    	margin-right: 45px;
+	    }
+		img{
+			max-width: 100%;
+			display: inline-block;
+			width: auto;
+			-webkit-transition-delay:2s;
+ 	transition-delay:2s;
+		}
+	}
+	.testimonialText{
+		@include desktops {
+	    	padding-top:50px;
+	    }
+		.product-rating{
+			color: $primary-color;
+			display: inline-block;
+			margin-bottom: 10px;
+			i{
+				@include tablet {
+			    	font-size: 16px;
+			    }
+			}
+		}
+	}
+	.testimonial-content{
+		border-top: 5px solid #e4e4e4;
+		padding-top:10px;
+		display: table-cell;
+    	vertical-align: top;
+    	@include tablet {
+	    	padding-top:20px;
+	    }
+		p{
+			font-size: 12px;
+			line-height: 22px;
+			margin-bottom: 15px;
+			@include tablet {
+		    	font-size: 16px;
+				line-height: 26px;
+				margin-bottom: 20px;
+		    }
+		}
+		.author-img{
+			width: 59px;
+			height: 55px;
+			border-radius:50%;
+			float: left;
+			margin-right: 15px;
+		}
+		cite{
+			font-size: 12px;
+			margin-top: 22px;
+			font-style: normal;
+			font-weight: 700;
+			text-transform: uppercase;
+			display: inline-block;
+			@include tablet {
+		    	font-size: 14px;
+				margin-top: 20px;
+		    }
+		}
+	}
+}
+
+/*=== 3.3.5 LIGHT SECTION ===*/
+.lightSection{
+	background-color: $light-color;
+	height: 125px;
+	.partnersLogoSlider.version2{
+		.owl-nav{
+			display: block;
+			width: 100%;
+		    position: absolute;
+		    top: 50%;
+		    margin-top: -5px;
+		    right: 0;
+		}
+	}
+}

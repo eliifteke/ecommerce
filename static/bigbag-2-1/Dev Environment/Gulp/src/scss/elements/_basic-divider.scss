@@ -1,0 +1,82 @@
+/*================================================
+--> Element Divider
+==================================================*/
+
+.divider-dotted {
+	border-top-style: dotted;
+}
+.divider-dashed {
+	border-top-style: dashed;
+}
+.divider-solid-dbl {
+	height: 4px;
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+}
+.divider-dotted-dbl {
+	height: 4px;
+	border-top: 1px dotted;
+	border-bottom: 1px dotted;
+}
+.divider-dashed-dbl {
+	height: 4px;
+	border-top: 1px dashed;
+	border-bottom: 1px dashed;
+}
+.divider-gradient-gray {
+	background-image: linear-gradient(to right, transparent, #ccc, transparent);
+	height: 1px;
+	border: none;	
+}
+
+// Divider width
+.w25 {
+	width: 25%!important;
+}
+.w50 {
+	width: 50%!important;
+}
+.w75 {
+	width: 75%!important;
+}
+
+// Icon Divider
+.divider {
+	position: relative;
+	border-top-width: 1px;
+}
+.border-solid {
+	border-top-style: solid;
+}
+.divider-center {
+	text-align: center;
+	.divider-icon {
+		left: auto;
+		right: auto;
+		margin-left: -20px;
+	}
+}
+.divider-right {
+	text-align: right;
+	.divider-icon {
+		left: auto;
+		margin-left: -40px;
+	}
+}
+.divider-icon {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	top: -20px;
+	display: inline-block;
+	line-height: 40px;
+	font-size: 20px;
+	color: $border-gray;
+	text-align: center;
+	background: $white-color;
+}
+// Mixed
+.divider-gradient {
+	height: 1px;
+	border: none;
+}

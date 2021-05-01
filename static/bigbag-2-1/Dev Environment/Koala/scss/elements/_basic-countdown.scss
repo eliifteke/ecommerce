@@ -1,0 +1,121 @@
+/* ================================================
+--> Elements countdown style
+================================================== */
+.count-down {
+	position: relative;
+	h2 {
+	    font-size: 40px;
+	    margin-bottom: 30px;
+	}
+	.simple_timer {
+	    width: 100%;
+	    margin: 0 auto;
+	    color: #222222;
+	}
+	.table-cell {
+	    margin: 15px 15px 0 0;
+	    display: inline-block!important;
+	    text-align: center;
+	    .tab-val {
+    	    width: 100px;
+    	    height: 100px;
+    	    line-height: 110px;
+    	    font-size: 40px;
+    	    display: inline-block!important;
+    	    background: #f8f8f8;
+    	    border: 1px solid #e5e5e5;
+    	    font-weight: 500;
+    	}
+    	.tab-metr {
+		    display: none;
+		}
+	}
+	&.titled {
+		.table-cell {
+			position: relative;
+			height: 130px;
+		    .tab-val {
+	    	    width: 130px;
+	    	    height: 130px;
+	    	    background-color: transparent;
+	    	}
+			.tab-metr {
+			    display: block!important;
+				margin-top: -50px;
+				line-height: 22px;
+				font-size: 16px;
+				text-transform: capitalize;
+				color: $secondary-color;
+			}			
+		}
+	}
+	&.circled {
+	    .tab-val {
+    	    border-radius: 50%;
+    	}
+	}
+	&.colored-bg {
+		padding: 80px 50px 80px;
+		.tab-val {
+    	    width: 130px;
+    	    height: 130px;
+    	    background-color: $white-color!important;
+    	    border: none;
+    	}
+	}
+	&.bg-image {
+		position: relative;
+		padding: 80px 50px 80px;
+		.tab-val {
+    	    width: 130px;
+    	    height: 130px;
+    	    background-color: $white-color!important;
+    	    border: none;
+    	}
+    	&.shadow:before {
+			position: absolute;
+			content: '';
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			background-color: rgba(53,63,65,0.9);
+    	}
+	}
+}
+
+// Counter
+.fun-text {
+	position: relative;
+	display: block;
+	margin-top: 15px;
+	@include tablet {
+		display: inline-block;
+		margin-right: 0px;
+	}
+	&:last-child {
+		margin-right: 0px;
+	}
+	@include tablet {
+		margin-right: 80px;
+	}
+	span {
+	    font-size: 50px;
+	    color: $secondary-color;
+	    font-weight: 400;
+	    padding: 20px 0;
+	    display: inline-block;
+	}
+	p {
+		font-size: 16px;
+		line-height: 22px;
+		color: $secondary-color;
+	}
+}
+.bg-primary {
+	.fun-text {
+		span, p {
+			color: $white-color;
+		}
+	}
+}

@@ -1,0 +1,49 @@
+/*================================================
+--> Element Heading
+==================================================*/
+[class*="heading-"] {
+    position: relative;
+}
+
+.heading {
+	&:before, &:after {
+		content: "";
+		position: absolute;
+		left: auto;
+		right: 0;
+		width: 100%;
+		height: 0;
+		border-top-width: 1px;
+		border-color: inherit;
+	}
+	&.heading-v1 {
+		&:before {
+		    top: 48%;
+		    border-top-style: solid;
+		}
+		&:after {
+		    top: 58%;
+		    border-top-style: solid;
+		}
+	}
+}
+.heading-v1-title {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 0;
+	padding-right: 18px;
+	background-color: inherit;
+	z-index: 2;
+}
+.text-center {
+	.heading-v1-title {
+		padding-right: 18px;
+		padding-left: 18px;
+	}
+}
+.text-right {
+	.heading-v1-title {
+		padding-right: 0px;
+		padding-left: 18px;
+	}
+}

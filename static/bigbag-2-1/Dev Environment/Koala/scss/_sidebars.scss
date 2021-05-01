@@ -1,0 +1,277 @@
+/*=== 8. SIDEBARS ===*/
+.sideBar{
+	.panel{
+		border-radius: 0;
+		border: none;
+		margin-bottom: 20px;
+		.panel-heading{
+			background-color: $primary-color;
+			border-radius: 0;
+			padding: 0 15px;
+			height: 45px;
+			line-height: 45px;
+			font-size: 15px;
+			font-weight: 700;
+			text-transform: uppercase;
+			color: $white-color;
+		}
+		.panel-body{
+			@include add-border(3px, $light-color, all);
+			border-top: none;
+			padding: 15px;
+		}
+	}
+	.input-group{
+		@extend .input-field;
+		@include add-border(3px, $light-color, all);
+		.form-control,
+		.input-group-addon{
+			border: none;
+		}
+	}
+}
+%list-item{
+	font-size: 14px;
+	color: $secondary-color;
+	line-height: 22px;
+	padding: 0;
+	@include transition(all 0.3s ease-in-out);
+	display: block;
+}
+.sub-list-item{
+	font-size: 13px !important;
+	color: #888888;
+	width: 100%;
+	display: block;
+	line-height: 20px;
+	padding: 7px 0 7px 14px;
+	@include transition(all 0.3s ease-in-out);
+	i{
+		right: auto;
+		left: 0;
+		line-height: 20px;
+		position: absolute;
+	}
+	&:hover{
+		color: $primary-color;
+	}
+}
+.navbar-side-collapse{
+	padding: 0;
+	display: block;
+	.side-nav{
+		width: 100%;
+		margin: 0;
+		li{
+			width: 100%;
+			margin-bottom: 15px;
+			a{
+				@extend %list-item;
+				background-color: transparent;
+				position: relative;
+				i{
+					font-size: 12px;
+					line-height: 22px;
+					position: absolute;
+					right: 0;
+				}
+				&:hover{
+					color: $primary-color;
+				}
+				&[aria-expanded="true"] {
+					i:before {
+						content: "\f068"!important;
+					}
+				}
+			}
+			.collapseItem{
+				li{
+					margin-bottom: 0 !important;
+					a{
+						@extend .sub-list-item;
+					}
+				}
+			}
+		}
+	}
+}
+.filterNormal{
+	.list-unstyled{
+		width: 100%;
+		li{
+			width: 100%;
+			a{
+				@extend %list-item;
+				padding: 10px 0;
+				&:hover{
+					color: $primary-color;
+				}
+				span{
+					margin-left: 10px;
+				}
+			}
+
+		}
+	}
+}
+.priceRange{
+	.progress{
+		margin: 20px 0 25px 0; 
+		height: 4px;
+		background-color: $light-color;
+		position: relative;
+		overflow: visible;
+		.progress-bar{
+			background-color: $secondary-color;
+		}
+		.bulet{
+			width: 16px;
+			height: 16px;
+			background-color: $white-color;
+			@include add-border(2px, $secondary-color, all);
+			@include border-radius(100%);
+			left: 0px;
+			top: -5px;
+			position: absolute;
+			&.next{
+				left: 60px;
+			}
+		}
+	}
+	.btn-default{
+		height: 30px;
+		line-height: 30px;
+		padding: 0;
+		text-transform: uppercase;
+		background-color: $secondary-color;
+		border-radius: 0;
+		border: none;
+		color: $white-color;
+		font-weight: 700;
+		@include mobile-xs{
+			width: 82px;
+			font-size: 14px;
+		}
+		@include mobile{
+			width: 82px;
+			font-size: 14px;
+		}
+		@include tablet{
+			width: 50px;
+			font-size: 10px;
+		}
+		@include desktops{
+			width: 45px;
+			font-size: 10px;
+		}
+		@include large-desktops{
+			width: 82px;
+			font-size: 14px;
+		}
+	}
+	.priceLabel{
+		float: right;
+		line-height: 30px;
+		color: $secondary-color;
+		@include mobile{
+			font-size: 14px;
+		}
+		@include tablet{
+			font-size: 11px;
+		}
+		@include desktops{
+			font-size: 14px;
+		}
+	}
+}
+.sidebar-list{
+	li{
+		a{
+			position: relative;
+			@extend .sub-list-item;
+		}
+	}
+}
+.recentBlogPosts{
+	.media-heading{
+		text-transform: capitalize;
+		font-weight: 400;
+		line-height: 20px;
+		margin-bottom: 12px;
+		@include mobile{
+			font-size: 14px;
+		}
+		@include tablet{
+			font-size: 14px;
+		}
+		@include desktops{
+			font-size: 14px;
+		} 
+		a{
+			color: $secondary-color;
+		}
+	}
+	p{
+		color: $text-slider-title;
+		i{
+			margin-right: 8px;
+		}
+		@include mobile{
+			font-size: 14px;
+		}
+		@include tablet{
+			font-size: 14px;
+		}
+		@include desktops{
+			font-size: 14px;
+		}
+	}
+}
+.priceRange{
+	position: relative;
+	.price-slider-inner{
+		display: block;
+		margin: 15px 0 25px 0;
+		.amount-wrapper{
+			position: absolute;
+			bottom: 25px;
+			right:20px;
+			font-size: 14px;
+			width: 120px;
+			right: 15px;
+			input{
+				background-color: transparent;
+				border: 0;
+				width: 28%;
+				font-size: 14px;
+				color: $secondary-color;
+				font-weight: 700;
+				text-align: right;
+			}
+		}
+		.ui-widget-content{
+			background: none;
+			border: 0;
+			background-color: $light-color;
+			height: 4px;
+			clear: both;
+			border-radius: 0;
+			margin: 0 5px 0 9px;
+			.ui-slider-range{
+				background-color: $secondary-color;
+				border: none;
+				border-radius: 0;
+			}
+			.ui-slider-handle{
+				border-radius: 50%;
+				background: none;
+				@include add-border(3px, $secondary-color, all);
+				background-color: $white-color;
+				top: -6px;
+				width: 16px;
+				height: 16px;
+				outline: none;
+			}
+		}
+	}
+}

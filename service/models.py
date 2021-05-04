@@ -147,6 +147,7 @@ class UrunModel(BaseModel):
 class UrunResimler(BaseModel):
     urun = models.ForeignKey(UrunModel, on_delete=models.CASCADE, verbose_name="Ürün ")
     urunresim = models.ImageField(upload_to=file_urun_save, verbose_name="Ürün Resim ")
+    sliderresim = models.BooleanField(verbose_name="Sliderde Gösterilsin Mi " , default=False)
 
 
 
@@ -166,7 +167,7 @@ class UrunOzellikleri(BaseModel):
         verbose_name = "Ürün Özellik "
         verbose_name_plural = "Ürün Özellik "
         ordering = ['-create_at']
-
+# urun -> [fiyat1 , fiyat2] => fiyat
 
 class UrunFiyat(BaseModel):
     urun = models.OneToOneField(UrunModel, on_delete=models.CASCADE, verbose_name="Ürün")

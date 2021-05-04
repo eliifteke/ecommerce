@@ -18,6 +18,10 @@ from django.urls import path, include
 from . import views as v
 
 urlpatterns = [
-    path('', v.index, name="index")
+    path('', v.index, name="index"),
+    path('kategoriler/' ,  include([
+        path('',v.kategoriler , name="kategoriler"),
+        path('<str:slug>/',v.kategoriler , name="kategorislug")
+    ]))
 
 ]

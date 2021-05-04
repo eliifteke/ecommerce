@@ -1,6 +1,6 @@
 from django import template
 register = template.Library()
-from service.models import UrunModel as urun
+from service.models import UrunModel as urun, KategoriModel
 
 
 @register.inclusion_tag("tools/slider.html")
@@ -28,3 +28,22 @@ def footer():
 @register.inclusion_tag("tools/urundetay.html")
 def urundetaymodal(u : urun):
     return {'urun':u}
+
+
+@register.inclusion_tag("tools/sliderresim.html")
+def urunsliderresim(u:urun):
+    for resim in u.urunresimler_set.all():
+        if resim.sliderresim :
+            return {'resim':resim.urunresim.url}
+
+    resim = u.urunresimler_set.all()[len(u.urunresimler_set.all())-1]
+
+    return {'resim':resim.urunresim.url}
+
+
+@register.inclusion_tag("tools/kategoriurunler.html")
+def kategoriurunler():
+    kategoriler  = KategoriModel.objects.all()
+    urunler = []
+    for kategori in kategoriler:
+         urunler  = urun.objects.filter(k)

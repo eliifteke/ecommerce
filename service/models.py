@@ -169,7 +169,7 @@ class UrunOzellikleri(BaseModel):
 
 
 class UrunFiyat(BaseModel):
-    urun = models.ForeignKey(UrunModel, on_delete=models.CASCADE, verbose_name="Ürün")
+    urun = models.OneToOneField(UrunModel, on_delete=models.CASCADE, verbose_name="Ürün")
     satisfiyati = models.FloatField(verbose_name="Satiş Fiyati ", default=0)
 
     class Meta:
@@ -197,6 +197,7 @@ class KampanyaModel(BaseModel):
         verbose_name = "Kampanyalar"
         verbose_name_plural = "Kampanyalar"
         ordering = ['-create_at']
+
 
 class KampanayaUrun(BaseModel):
     urunid = models.ForeignKey(UrunModel , on_delete=models.CASCADE ,verbose_name="Ürün" , limit_choices_to={'aktifmi':True})

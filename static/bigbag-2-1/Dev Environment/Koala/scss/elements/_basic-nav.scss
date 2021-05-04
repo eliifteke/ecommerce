@@ -1,0 +1,64 @@
+/* ================================================
+--> Elements Nav style
+================================================== */
+ul.nav {
+	.nav-item {
+		.nav-link {
+			font-size: 14px;
+			line-height: 26px;
+			text-transform: uppercase;
+		}
+		&.active {
+			.nav-link {
+				color: $primary-color;
+			}
+		}
+	}
+}
+ul.nav-tabs {
+	.nav-item {
+		.nav-link {
+		    border-radius: 0px;
+		    padding: 10px 20px;
+		    background-color: $light-color;
+		    margin-right: 0px;
+		    border: 1px solid #e5e5e5;
+			border-bottom: 0px;
+			color: $secondary-color;
+			&.active {
+			    border-top-color: $primary-color;
+			    border-top-width: 2px;
+			    background-color: $white-color;
+			}
+		}
+		&:last-child {
+			.nav-link {
+				margin-right: 0px;
+			}
+		}
+	}
+	&.no-bg {
+		.nav-item {
+			.nav-link {
+			    background-color: transparent;
+			    border: 1px solid transparent;
+			    &.active {
+			        border-color: $primary-color;
+			        background-color: $primary-color;
+			        color: $white-color;
+			    }
+			}
+		}
+	}
+	&.nav-pills {
+		.nav-item {
+			.nav-link {
+				&.active {
+				    border-color: $primary-color;
+				    background-color: $primary-color;
+				    color: $white-color;
+				}
+			}
+		}
+	}
+}

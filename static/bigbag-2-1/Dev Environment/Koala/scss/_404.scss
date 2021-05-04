@@ -1,0 +1,77 @@
+/*=== 11. 404 PAGE ===*/
+.input-field{
+	margin-bottom: 20px;
+	.form-control{
+		height: 49px;
+		border-radius: 0;
+		border-color: #bfbfbf;
+		background: transparent;
+		border-right: none;
+		padding-left: 20px;
+		&:focus{
+			box-shadow: none;
+		}
+	}
+	.input-group-addon{
+		background-color: transparent;
+		border-radius: 0;
+		border-color: #bfbfbf;
+		font-size: 18px;
+		color: $secondary-color;
+		padding: 6px 20px;
+	}
+}
+%otherLogo{
+	margin-bottom: 80px;
+	display: inline-block;
+	float:none;
+	margin-top:0;
+	padding:0;
+}
+.notFound{
+	text-align: center;
+	padding-bottom: 90px;
+	.pageLogo{
+		@extend %otherLogo;
+	}
+	h1{
+		color: $primary-color;
+		text-shadow: 8px 8px 1px #dadada;
+		margin-bottom: 70px;
+		line-height: 1;
+		@include mobile-xs{
+			font-size: 150px;
+		}
+		@include mobile{
+			font-size: 200px;
+		}
+		@include tablet{
+			font-size: 300px;
+		}
+	}
+	h2{
+		color: #333333;
+		margin-bottom: 50px;
+	}
+	.input-group{
+		@extend .input-field;
+		margin-bottom: 50px;
+	}
+	.btn-default{
+		height: 42px;
+		background-color: $primary-color;
+		font-size: 14px;
+		color: $white-color;
+		text-transform: uppercase;
+		border-radius: 0;
+		padding: 0;
+		line-height: 38px;
+		border: 2px solid $primary-color;;
+		font-weight: 700;
+
+		@include transition(all 0.3s ease-in-out);
+		&:hover{
+			opacity: .9;
+		}
+	}
+}

@@ -1,0 +1,86 @@
+/* ================================================
+--> Elements Progressbar style
+================================================== */
+.display-single_element {
+	
+}
+.progress {
+	border-radius: 0px;
+}
+.progress.bordered {
+    height: 20px;
+    align-items: center;
+    background: transparent;
+    padding: 0 5px;
+    line-height: 10px;
+    text-align: center;
+    border: 1px solid #e5e5e5;
+    border-radius: 0px;
+    .progress-bar{
+       background-color: $primary-color;
+      	border-radius: 0px;
+      	height: 10px;	
+    }	
+}
+.progressText {
+	font-size: 15px;
+}
+.progress-bar{
+   background-color: $primary-color;
+   text-align: left;
+  border-radius: 0px;	
+}	
+.tooltip { 
+  position:relative;
+  float:right;
+}
+.tooltip {
+	> .tooltip-inner {
+		background-color: transparent; 
+		padding:8px 15px; 
+		color: $text-slider-title; 
+		font-size:15px;
+		&:before {
+			display: none;
+		}
+	}
+}
+
+.progress-bar-primary {
+    background-color: $primary-color;
+}
+.progress-bar-success {
+    background-color: $success;
+}
+.progress-bar-info {
+    background-color: $info;
+}
+.progress-bar-warning {
+    background-color: $warning;
+}
+.progress-bar-danger {
+    background-color: $danger;
+}
+
+.circle1 {
+  margin-top: 30px;
+  position: relative;
+  strong {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    margin-top: -20px;
+    color: $secondary-color;
+  }
+  span.text {
+    display: block;
+    color: $secondary-color;
+    font-size: 16px;
+    margin-top: 15px;
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,73 @@
+/*=== 2.2 HEADER V2 ===*/
+.version2, .version3{
+	.topBar ul.float-right li:nth-child(2)::before{
+			left: -8px;
+		}
+	.top-right .searchBox .dropdown-menu{
+		@include mobile-xs {
+			margin: 0 -110px 0 0;
+		}
+	}
+}
+.headerV2 .topBar ul.pull-right li:last-child{
+	margin-left:0;
+}
+.version2, .version3{
+	.cart-dropdown{
+		position: absolute;
+    	right: 85px;
+    	top: 21px;
+    	@include tablet{
+			right: 25px;
+		}
+		@include desktops {
+			top: 36px;
+		}
+    	.shop-cart{
+			color: $secondary-color;
+			background-color: transparent;
+			width: 26px;
+			height: 36px;
+			line-height: 26px;
+			display: block;
+			text-align: center;
+			position: relative;
+			@include transition(all 0.3s ease-in-out);
+			@include tablet{
+				height: 54px;
+			}
+			i{
+				color: $secondary-color;;
+			}
+		}
+		.dropdown-menu-right {
+			right: -10px;
+			left: auto;
+			top: 97%;
+		}
+	}
+	.navbar-default.navbar-fixed-top{
+		.cart-dropdown{
+	    	top: 19px;
+	    	.shop-cart{
+	    		height: 38px;
+	    		@include tablet{
+					height: 42px;
+				}
+	    	}
+	    }
+	}
+}
+.cart-dropdown .shop-cart{
+	.badge{
+		background-color: $primary-color;
+		position: absolute;
+		top: -5px;
+		right: -15px;
+	}
+}
+.nav-V2.navbar-default .navbar-collapse{
+	@include tablet{
+		margin-right: 50px;
+	}
+}

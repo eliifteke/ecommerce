@@ -1,0 +1,117 @@
+/*=== 16. COMMING SOON ===*/
+.commingSoon{
+	text-align: center;
+	background: url(../img/comming-soon/comming-soon-bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: #282828;
+}
+.commingSoon .blackSection{
+	padding: 90px 0 20px;
+	.pageLogo{
+		@extend %otherLogo;
+		margin-bottom: 70px;
+	}
+	h1{
+		color: $white-color;
+		text-transform: capitalize;
+		small{
+			display: block;
+			font-size: 15px;
+			line-height: 26px;
+			margin: 17px 0 50px 0;
+		}
+	}
+	.input-group{
+		@extend .input-field;
+		margin-bottom: 50px;
+		.form-control{
+			background-color: transparent; 
+			color: $white-color;
+		}
+		a{
+			i{
+				color: $white-color;
+			}
+		}
+	}
+	.list-inline{
+		li{
+			a{
+				font-size: 20px;
+				color: rgba($white-color, .5);
+				padding: 0 10px;
+				@include transition(all 0.3s ease-in-out);
+				&:hover{
+					color: rgba($white-color, 1);
+				}
+			}
+		}
+	}
+}
+.count-down{
+	padding: 20px 0 70px 0;
+	#simple_timer{
+		width: 100%;
+		margin: 0 auto;
+		color: $white-color;
+		text-align: center;
+		.table-cell{
+			display: inline-block;
+			@include mobile {
+				margin: 0 10px;
+			}
+			@include tablet {
+				margin: 0 10px;
+			}
+			@include desktops {
+				margin: 0 10px;
+			}
+			@include large-desktops {
+				margin: 0 12px;
+			}
+			.tab-val{
+				font-weight: 700;
+				display: block;
+				margin-bottom: 0px;
+				@include border-radius(100%);
+				background-color: $primary-color;
+				@include mobile {
+					width: 65px;
+					height: 65px;
+					line-height: 65px;
+					font-size: 25px;
+				}
+				@include tablet {
+					width: 85px;
+					height: 85px;
+					line-height: 85px;
+					font-size: 35px;
+				}
+				@include desktops {
+					width: 85px;
+					height: 85px;
+					line-height: 85px;
+					font-size: 35px;
+				}
+				@include large-desktops {
+					width: 109px;
+					height: 109px;
+					line-height: 109px;
+					font-size: 45px;
+				}
+			}
+			.tab-metr{
+				color: $white-color;
+				font-size: 12px;
+				font-weight: 700;
+				text-transform: uppercase;
+				@include tablet {
+					font-size: 15px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+/* ================================================
+--> Hero blocks styles
+================================================== */
+.hero-block {
+	padding-top: 80px;
+	padding-bottom: 80px;
+	@include desktops {
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+}

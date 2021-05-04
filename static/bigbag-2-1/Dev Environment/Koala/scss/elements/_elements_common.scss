@@ -1,0 +1,147 @@
+
+/* ================================================
+--> Element Single block style
+================================================== */
+.element_single {
+	.card.single-block {
+		margin-bottom: 30px;
+		border: none;
+		border-radius: 0px;
+		background-color: $light-color;
+		.card-header {
+			padding: 20px;
+			border-bottom: none;
+			border-radius: 0px;
+			background-color: $light-color;
+			position: relative;
+			@include desktops {
+				padding: 20px 25px;
+			}
+			h3 {
+				font-family: 'Lato', sans-serif;
+				font-size: 20px;
+				max-width: 60%;
+				font-style: normal;
+				@include tablet {
+					font-size: 25px;
+					max-width: 100%;
+				}
+				a {
+					color: $text-slider-title;
+					background: $white-color;
+					padding: 10px 10px;
+					font-size: 14px;
+					border-radius: 4px;
+					right: 20px;
+					position: absolute;
+					top: 50%;
+					@include transform(translateY(-50%));
+					@include tablet {						
+						float: right;
+						right: 0px;
+						position: relative;
+						@include transform(translateY(0%));
+					}
+				}
+			}
+		}
+		.card-block {
+			padding: 0;
+			.code_container {
+			    margin-right: 0;
+			    margin-left: 0;
+				border-top: 1px solid rgba(2,2,2,0.09);
+				padding: 10px 20px;
+				h5 {
+					font-family: 'Lato', sans-serif;
+					color: $text-slider-title;
+					font-size: 18px;
+					line-height: 60px;
+					text-transform: unset;
+				}
+				p {
+					color: $secondary-color;
+				}
+				ul {
+					padding: 10px 15px 20px;
+					li {
+						color: $secondary-color;
+						padding: 5px 15px;
+						font-size: 15px;
+						line-height: 26px;
+						&:before {
+						  content: "\f10c"; /* FontAwesome Unicode */
+						  font-family: FontAwesome;
+						  display: inline-block;
+						  font-size: 14px;
+						  color: $text-slider-title;
+						  margin-left: -24px; /* same as padding-left set on li */
+						  width: 24px; /* same as padding-left set on li */
+						}
+					}
+				}
+				.s{color:#e6db74}
+				.nt{color:#f92672}
+				.na{color:#a6e22e}
+			}
+		}
+		pre {
+			margin: 10px 0px;
+			background-color: #282C34;
+			color: #ABB2BF;
+			code {
+				color: #ABB2BF;
+				font-size: 14px;
+			}
+		}
+	}
+	.display-single_element {
+		margin-bottom: 80px;
+		> p {
+			font-size: 15px;
+			margin-bottom: 15px;
+		}
+	}
+	.dropdown-menu {
+	    -webkit-transform-origin: top;
+	    transform-origin: top;
+	    -webkit-animation-fill-mode: forwards;
+	    animation-fill-mode: forwards;
+	    -webkit-transform: scale(1, 1);
+	    transform: scale(1, 1);
+	    background-color: #ffffff;
+	    margin-top: 0px;
+	    padding: 5px 20px;
+	    opacity: 1;
+	    transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s;
+	    transition: transform 0.3s, opacity 0.3s ease-in-out;
+	    transition: transform 0.3s, opacity 0.3s ease-in-out, -webkit-transform 0.3s;
+	    @include tablet {
+	    	display: none;
+	    }
+	}
+	.show {
+		.dropdown-menu {
+			@include tablet {
+				display: block;
+			}
+		}
+	}
+	.progress {
+		margin: 10px 0;
+	}
+
+	.bd-example {
+	    padding: 1.5rem;
+	    margin-right: 0;
+	    margin-bottom: 0;
+	    margin-left: 0;
+	    border-width: .2rem;
+	}
+	.scrollspy-example {
+	    position: relative;
+	    height: 200px;
+	    margin-top: .5rem;
+	    overflow: auto;
+	}
+}

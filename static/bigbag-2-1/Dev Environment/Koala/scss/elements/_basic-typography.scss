@@ -1,0 +1,65 @@
+
+p.typo {
+	padding-top: 20px;
+	padding-bottom: 30px;
+}
+mark {
+	background: transparent;
+	color: #f55c5d!important;
+}
+
+// List elements =========================
+.styled_list {
+	margin-top: 15px;
+	position: relative;
+	display: inline-block;
+	@include tablet {
+		margin-top: 15px;
+	}
+	li {
+		font-size: 14px;
+		line-height: 30px;
+		@include tablet {
+			font-size: 14px;
+			float: left;
+			width: 50%;
+		}
+		i {
+			margin-right: 10px;
+			font-size: 12px;
+		}
+		a {
+			color: $text-slider-title;
+			@include tablet {
+				font-size: 12px;
+			}
+			@include desktops {
+				font-size: 14px;
+			}
+		}
+	}
+}
+ol.styled_list {
+	margin-left: 15px;
+	li {
+		padding-left: 10px;
+	}
+}
+
+.dropcaps {
+	p {
+		display: inline-block;
+		.firstcharacter {
+			color: $text-slider-title;
+			float: left;
+			font-size: 22px;
+			width: 40px;
+			height: 40px;
+			background-color: $light-color;
+			text-align: center;
+			line-height: 40px;
+			margin-top: 9px;
+			margin-right: 10px;
+		}
+	}
+}

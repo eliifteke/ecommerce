@@ -1,0 +1,312 @@
+/* ================================================
+--> Elements form style
+================================================== */
+.form-group {
+	margin-bottom: 0px;
+}
+.input-group-addon {
+	border-color: $light-color;
+}
+select.form-control:not([size]):not([multiple]) {
+    height: unset;
+}
+input.form-control, textarea.form-control, select.form-control {
+	border-radius: 0px;
+	font-size: 14px;
+	padding: 13px 20px;
+	line-height: 24px;
+	border: 1px solid $light-color;
+	background-color: $light-color;
+	margin-bottom: 30px;
+	font-weight: 300;
+	@include placeholder {
+	  color: $text-slider-title;
+	}
+	&.focus, &:focus, &.active, &:active {
+		background-color: $white-color;
+		border-color: $light-color;
+		font-weight: 300;
+		@include box-shadow(0px, 2px, 7px, rgba( 0, 0, 0, 0.05));
+	}
+}
+input.form-control.is-valid, input.form-control.is-invalid {
+	&.focus, &:focus, &.active, &:active {
+		background-color: $white-color;
+		border-color: default;
+		font-weight: 300;
+		//@include box-shadow(0px, 2px, 7px, rgba( 0, 0, 0, 0.05));
+		box-shadow: default;
+	}
+}
+form {
+	button[type="submit"] {
+
+	}
+}
+.text_input {
+	.form-group {
+		margin-bottom: 10px;
+		@include tablet {
+			margin-bottom: 20px;
+		}
+		label {
+			font-size: 15px;
+			font-weight: 400;
+			line-height: 24px;
+			color: $secondary-color;
+			@include desktops {
+				font-size: 16px;
+			}
+		}
+	}
+	input.form-control, textarea.form-control, select.form-control {
+		margin-bottom: 0px;
+	}
+}
+
+// SelectBox input style ==========================================
+.form-group {
+	.helpText {
+	    position: absolute;
+	    top: 18px;
+	    right: 25px;
+	}
+}
+.selectOptions {
+	    margin-bottom: 0px;
+	.sbHolder {
+	    background-color: transparent;
+	    border: none;
+	    margin: 0;
+	    border-radius: 0;
+	    border: 1px solid $border-light;
+	}
+	.sbHolder, .sbSelector {
+	    width: 100% !important;
+		height: 50px !important;
+		line-height: 50px;
+		background: $light-color;
+		border: none;
+	}
+	.sbOptions {
+	    width: 100% !important;
+	    background-color: $white-color;
+	    border: 1px solid $border-light;
+	    right: 0 !important;
+	    border-radius: 0;
+	    z-index: 100;
+	     a {
+		    color: $text-slider-title;
+		    font-size: 13px;
+		    padding: 5px 15px;
+		    text-transform: uppercase;
+		    &:hover {
+			    color: $primary-color;
+			    background-color: transparent;
+			}
+		}
+		li:first-child {
+			a {
+				padding-top: 10px;
+			}
+		}
+		li:last-child {
+			a {
+				padding-bottom: 10px;
+			}
+		}
+		.sbToggle {
+		    &:hover, &:focus, &:active {
+				color: inherit;
+			}
+		}
+	}
+	.sbHolder > a {
+		&.sbToggle:after {
+			position: absolute;
+			content: '\f078';
+			font-family: 'FontAwesome';
+			top: 0px;
+			right: 10px;
+			font-size: 10px;
+		}
+		&.sbToggle.sbToggleOpen:after {
+			content: '\f077';
+		}
+	}
+}
+// Checkbox & Radio Buttons styling ==========================================
+.form-check-input {
+    margin-left: 4px;
+    margin-top: 6px;
+    padding: 5px;
+    opacity: 0;
+}
+.form-check-label {
+    padding-left: 0px;
+    margin-bottom: 25px;
+    font-size: 15px;
+    cursor: default;
+    color: $secondary-color;
+}
+.checkbox-custom + .checkbox-custom-label:before, .radio-custom + .radio-custom-label:before {
+    content: '';
+    background: $white-color;
+    border: 1px solid #dedede;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 20px;
+}
+.checkbox-custom:checked + .checkbox-custom-label:before {
+    content: "\f00c";
+    font-family: 'FontAwesome';
+    color: $white-color;
+    background: $primary-color;
+    border: 0px solid $primary-color;
+}
+.radio-custom + .radio-custom-label:before {
+    border-radius: 50%;
+}
+.radio-custom:checked + .radio-custom-label:before {
+    content: "\f111";
+    font-size: 9px;
+    font-family: 'FontAwesome';
+    color: $white-color;
+    background: $primary-color;
+    border: 0px solid $primary-color;
+}
+span.or {
+    font-size: 15px;
+    padding: 15px 0;
+    display: block;
+    color: #222222;
+}
+
+.checkbox-custom:checked + .checkbox-custom-label,
+.radio-custom:checked + .radio-custom-label {
+	&.default-checked:before {
+	    background-color: #e5e5e5!important;
+	    color: $text-slider-title!important;
+	}
+	&.disable-checked:before {
+	    background: #f2f2f2!important;
+	    color: tint($text-slider-title, 50%)!important;
+	}
+}
+
+
+// Login Form ========================================
+h3.form_title {
+    display: block;
+    font-size: 25px;
+    padding: 25px 30px;
+    text-transform: capitalize;
+    background: $light-color;
+}
+form.register {
+	border: 1px solid #e5e5e5;
+	border-top: 0px;
+	padding: 25px 30px;
+	.form-check {
+		label.checkbox-custom-label {
+			color: $secondary-color;
+			margin-bottom: 0px;
+			&:before {
+				width: 16px;
+				height: 16px;
+				line-height: 16px;
+			}
+		}
+		.checkbox-custom:checked + .checkbox-custom-label:before {
+			font-size: 12px;
+		}
+	}
+	.btn-link {
+		color: #439fdb;
+		text-decoration: none;
+		font-size: 15px;
+		display: inline-block;
+	}
+	span.or {
+		position: relative;
+		font-weight: 700;
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			width: 47%;
+			background: #e5e5e5;
+			height: 1px;
+			top: 50%;
+		}
+		&:after {
+			content: '';
+			position: absolute;
+			right: 0;
+			width: 47%;
+			background: #e5e5e5;
+			height: 1px;
+			top: 50%;
+		}
+	}
+	.btn {
+		font-weight: 700;
+		margin-bottom: 20px;
+		&.btn-facebook, &.btn-twitter {
+			margin-top: 20px;
+			margin-bottom: 10px;
+			text-transform: unset;
+		}
+	}
+}
+p.form-footer {
+    margin: 0;
+    text-align: center;
+    padding: 20px 0;
+    border: 1px solid #e5e5e5;
+    border-top: 0px;
+    font-size: 15px;
+}
+
+.input-icon {
+	position: relative;
+	.input-group-addon {
+		background-color: transparent;
+		border: 0px solid transparent;
+		font-size: 16px;
+		color: $text-slider-title;
+		position: absolute;
+		top: 0;
+		padding: 0px;
+		z-index: 55;
+	    margin: 17px 0px;
+	    left: 15px;
+	}
+	input {
+		padding-left: 40px;
+	}
+	&.col-md-12 {
+		.input-group-addon {
+			left: 27px;
+		}
+	}
+}
+//Inline form ================================
+.form-inline {
+	justify-content: space-between;
+	.input-group {
+		width: 38%;
+		position: relative;
+	}
+	.uname,.email,.password {
+		position: relative;
+		> input {
+
+		}
+	}
+}

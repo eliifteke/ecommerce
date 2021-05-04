@@ -25,7 +25,7 @@ SECRET_KEY = 'n1%*v%dw#_wpe2oz_zjx-7k!5*6^x3&+a(yp66=c!^drg(-prm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 FCM_DJANGO_SETTINGS = {

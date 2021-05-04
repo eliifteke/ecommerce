@@ -27,3 +27,5 @@ E
 service/urls.py,7\0\702371294a79c1de89270df225102137efa1ab88
 R
 "service/migrations/0001_initial.py,b\b\bbee34f601ba68aa955230044bca4f97b083585a
+<
+static/a.css,2\4\2483d73374d913ff1d721ae313692e04379859c7

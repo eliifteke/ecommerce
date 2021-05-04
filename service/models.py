@@ -63,6 +63,11 @@ def file_urun_save(intence, filename):
     return os.path.join('urun',str(intence.urun),filename)
 
 
+"""
+def product_image_path(instance, filename):
+    return "product/images/{}/{}".format(instance.title, filename)
+"""
+
 class KategoriModel(BaseModel):
     adi = models.CharField(verbose_name="Adi", max_length=255)
     kdvorani = models.IntegerField(verbose_name="Kdv Orani ", default=18)
@@ -172,3 +177,36 @@ class UrunFiyat(BaseModel):
         verbose_name = "Ürün Fiyatı "
         verbose_name_plural = "Ürün Fiyatı"
         ordering = ['-create_at']
+
+
+def file_gorsel_save(intence, filename):
+    filename = "urun/kampanya/{}".format(intence.userid.username, filename)
+    return os.path.join('urun', filename)
+
+
+
+class KampanyaModel(BaseModel):
+    baslik =models.CharField(verbose_name="Başlığı :" , max_length=255)
+    aciklamasi = RichTextField(verbose_name="Açıklamasi :")
+    gorsel = models.ImageField(verbose_name="Görsel", upload_to=file_gorsel_save)
+    aktifmi = models.BooleanField(verbose_name="Aktif Mi" , default=True)
+    update_at = models.DateField(verbose_name="Bitiş Tarihi" )
+
+    class Meta:
+        db_table = 'kampanyatb'
+        verbose_name = "Kampanyalar"
+        verbose_name_plural = "Kampanyalar"
+        ordering = ['-create_at']
+
+class KampanayaUrun(BaseModel):
+    urunid = models.ForeignKey(UrunModel , on_delete=models.CASCADE ,verbose_name="Ürün" , limit_choices_to={'aktifmi':True})
+    kampanya = models.ForeignKey(KampanyaModel , on_delete=models.CASCADE , limit_choices_to={'aktifmi':True})
+    baslangictarihi =models.DateTimeField(verbose_name="Başlangıç Tarihi")
+    bitistarihi = models.DateTimeField(verbose_name="Bitiş Tarihi")
+
+    class Meta:
+        db_table = 'kampanyauruntb'
+        verbose_name = "Kampanya Urun"
+        verbose_name_plural = "Kampanya Urun"
+        ordering = ['-create_at']
+

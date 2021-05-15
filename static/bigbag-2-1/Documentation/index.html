@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Theme Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700,800,600,300" rel="stylesheet" type="text/css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/syntaxhighlighter/scripts/shCore.js"></script>
+  <script src="js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+  <script src="js/syntaxhighlighter/scripts/shBrushCss.js"></script>
+  <script src="js/syntaxhighlighter/scripts/shBrushPlain.js"></script>
+  <script src="js/syntaxhighlighter/scripts/shBrushXml.js"></script>
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
+  <link rel="stylesheet" href="js/syntaxhighlighter/styles/shCoreDefault.css" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  
+  <div class="wrapper">
+    <section>
+      <div class="container">
+        <ul class="docs-nav">
+          <li><strong>Introduction</strong></li>
+          <li><a href="#getting-started" class="cc-active active">Getting Started</a></li>
+          <li><a href="#html-structure" class="cc-active">HTML Structure</a></li>
+          <li><a href="#chaning-fonts" class="cc-active">Fonts</a></li>
+          <li><a href="#header-topbar" class="cc-active">Header</a></li>
+          <li><a href="#layout-style" class="cc-active">Layout</a></li>
+          <li><a href="#color-schemes" class="cc-active">Color Schemes</a></li>
+          <li><a href="#preloader" class="cc-active">Preloader</a></li>
+          <li><a href="#using-elements" class="cc-active">Elements</a></li>
+          <li><a href="#dev-environment" class="cc-active">Dev Environment</a></li>
+        </ul>
+        <div class="docs-content">
+          <div class="docs-content-inner" id="docs-start-less">
+            <section id="getting-started">
+              <h1>Introduction</h1>
+              <p>Thank you for purchasing <strong>Bigbag</strong> template!</p>
+              <p> This documentation will give you an understanding of how <strong>Bigbag</strong> is structured and guide you in performing common functions. If you require further assistance not covered in this documentation, please contact me at <a href="mailto:hello@iamabdus.com">hello@iamabdus.com</a></p>
+              <p>Thank you so much!</p>
+              <p>&nbsp;</p>
+              <h1 id="Installation">Getting Started</h1>
+              <h4>What's Included</h4>
+              <p>
+                You will see the following folder structure. If you want to build simple HTML and CSS based website, please use Static HTML version. Dev Environment folder contains SCSS files if you want to use Sass as a css preprocessor to build your app.
+              </p>
+
+              <div id="default-tree">
+                <ul>
+                  <li><strong>css</strong> - Main css files</li>
+                  <li><strong>img </strong>- Image files</li>
+                  <li><strong>js</strong> - Custom js files</li>
+                  <li><strong>plugins</strong> - All used plugins</li>
+                  <li><strong>scss</strong> - All Scss files</li>
+                </ul>
+              </div>
+            </section>
+
+            <section id="html-structure">
+              <h1>HTML Structure</h1>
+              <p><strong>Bigbag</strong> template is based on Bootstrap Framework (version: 4) (<a href="https://getbootstrap.com/">https://getbootstrap.com/</a>) Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.</p>
+              <p>Below is a sample coding structure:</p>
+              <pre class="brush: html;">
+                &lt;!DOCTYPE html&gt;
+
+                &lt;html lang="en-US"&gt;
+
+                &lt;head&gt;
+
+                <!-- Page meta, page css, page title etc... -->
+
+                &lt;/head&gt;
+
+                &lt;body id="body" class=""&gt;
+                <!-- HEADER -->
+                &lt;header class="header"&gt;
+
+                  ...
+
+                &lt;/header&gt;
+
+                <!-- MAIN WRAPPER -->
+                &lt;div class="main-wrapper"&gt;
+
+
+                  <!-- SECTION -->
+                  &lt;section&gt;
+                    &lt;div class="container"&gt;
+
+                      ...
+
+                    &lt;/div&gt;
+                  &lt;/section&gt;
+
+                  <!-- FOOTER -->
+                  &lt;footer&gt;
+
+                      ...
+
+                  &lt;/footer&gt;
+
+                &lt;/div&gt;
+
+                &lt;/body&gt;
+
+                &lt;/html&gt;
+
+              </pre>
+            </section>
+
+            <section id="chaning-fonts">
+              <h1>Changing Fonts</h1>
+              <p>If you wish to add/change the site fonts, please take a look in the top of <code>style.css</code> file of the website and replace this line</p>
+              <pre class="brush: css">
+
+                /* GOOGLE FONT */
+                @import url("https://fonts.googleapis.com/css?family=Oxygen:400,300,700");
+
+              </pre>
+              <br>
+              <p>after import font's url in the css file you need to change the font-family property of the elements. <strong>Bigbag</strong> uses two different font family. To change the default fonts go to css file and change the <code>font-family</code> of the elements as shown</p>
+
+              <pre class="brush: css">
+
+                /* body element */
+
+                body {
+                  font-family: 'Oxygen', sans-serif;
+                }
+
+              </pre>
+            </section>
+
+            <section id="header-topbar">
+              <h1>Header Styles</h1>
+              <p><strong>Bigbag</strong> has two different header styles.<br> This part of documentation will guide you to customize and switch between each header styles.</p>
+              <br>
+
+              <h4>Fixed Header</h4>
+              <p>This header styles keeps the header fixed on top as you scroll down the page. To get this you no need to add extra classnames to <code>&lt;body&gt;</code> element. As you scrolling down, a class <strong>navbar-sticky</strong> will be automatically added to <code>&lt;nav&gt;</code> element.</p>
+
+              <br>
+              <h4>Static Header</h4>
+              <p>Static header option will make header disappear as you scroll down to the page. For <strong>static</strong> header you need to add following class in the <code>&lt;body&gt;</code> element</p>
+              <pre class="brush: html;">&lt;body class="static"&gt;</pre>
+            </section>
+
+            <section id="layout-style">
+              <h1>Layout Style</h1>
+              <p><strong>Bigbag</strong> supports two different layout modes, Wide & Boxed Layout mode. 
+              <br>
+              <h4>Wide Layout</h4>
+              <p>This is the default option. No need to add extra class or else to the <code>&lt;body&gt;</code> </p>
+              <pre class="brush: html;">
+                &lt;body class=""&gt;
+              </pre>
+              <br>
+              <h4>Boxed Layout</h4>
+              If you want to use the boxed version, add the classname <strong>boxed</strong> to the <code>&lt;body&gt;</code> and layout style will be changed to boxed version.</p>
+              <pre class="brush: html;">
+                &lt;body class="boxed"&gt;
+              </pre>
+              <br>
+              <h4>Background Pattern: (Boxed layout only)</h4>
+              <p><strong>Bigbag</strong> has Eight different preset patterns available in then template with the classnames <strong>"default", "pattern-01", "pattern-02", "pattern-03", "pattern-04", "pattern-05", "pattern-06"</strong> & <strong>"pattern-07"</strong>. 
+              <br> 
+              To use pattern background in the Boxed version, add any of the above classnames with the <code>&lt;body&gt;</code> like this:</p>
+              <pre class="brush: html;">&lt;body class="boxed pattern-01"&gt;</pre>
+            </section>
+
+            <section id="color-schemes">
+              <h1>Color Schemes</h1>
+              <p>This part of the documentation will explain how to change the current Color Scheme of your site, You simply need to include an existing color scheme or change the HEX Color Code in the <code>css/default.css</code> and include inside <code>&lt;head&gt;</code>
+                  <br>
+                  <br>
+              </p>
+              <h4>Default color example</h4>
+              <pre class="brush: html;">
+
+                &lt;head&gt;
+
+                <!-- Template color -->
+                &lt;link rel="stylesheet" href="css/default.css" id="option_color"&gt;
+
+                &lt;/head&gt;
+
+              </pre>
+              <br>
+              <br>
+              <h4>How to change default color:</h4>
+              <p>To change default color, go to this folder<code>css/default.css</code> and open <code>default.css</code>.Change the HEX Color Code whatever you want like: <code>color: #ec5598;</code></p>
+              <br>
+              <h4>How to use preset colors:</h4>
+              <p>
+                You will find 4 more existing color schemes in css directory. To use them just replace <code>css/default.css</code> with <code>css/color-option1.css</code> or <code>css/color-option2.css</code> or <code>css/color-option3.css</code> or <code>css/color-option4.css</code> inside <code>&lt;head&gt;</code>. <br> You can use all available color options in the same way shown below:
+                <br>
+                <br>
+              </p>
+                <h4>Color option example</h4>
+                <pre class="brush: html;">
+
+                  &lt;head&gt;
+
+                  <!-- Template color -->
+                  &lt;link rel="stylesheet" href="css/color-option2.css" id="option_color"&gt;
+
+                  &lt;/head&gt;
+
+                </pre>
+            </section>
+
+            <section id="preloader">
+              <h1>Preloader</h1>
+              <p>This part of the documentation will help you to customize preloader </p>
+              <p>Underneath the <code>&lt;body&gt;</code> tag you can find preloader mark-up. You can apply any custom styles of preloader as you want by customizing css in <code>style.css</code>. You can also use gif images. <br>
+              Follow the steps below to apply preloader</p>
+
+              <p>
+                <strong>Step-1:</strong> Add preloader markup.
+              </p>
+              <pre class="brush: html;">
+                &lt;body id="body" class=""&gt;
+                  &lt;div id="preloader" class="loader-wrapper"&gt;
+
+                    <!-- Put any preloader markup you can also use gif images -->
+
+                  &lt;/div&gt;
+              </pre>
+              <p>
+                <strong>Step-2:</strong> Copy the following javascript code in <code>custom.js</code>
+                <pre class="brush: js;">
+
+                  setTimeout(function(){
+                    $('body').addClass('loaded');
+                  }, 3000);
+
+                </pre>
+                This will add a class <strong>loaded</strong> in the <code>&lt;body&gt;</code> element after the loader finishes loading. By default loader time is set for 3 seconds, you can increase or decrease it in the function above.
+              </p>
+              <p>
+                <strong>Step-3:</strong> <code>body</code> containes some style properties until the preloader loads. You need to overwrite the properties when the loaded class added. Copy the following css and paste it in <code>style.css</code>
+              </p>
+              <pre class="brush: css;">
+
+                body {
+                  overflow: hidden;
+                  height: 100%;
+                }
+
+                body.loaded {
+                  overflow: auto;
+                  height: auto;
+                }
+
+                #preloader {
+                  /* Apply any css style properties for loader. */
+                }
+
+                /* Hide the preloader when finishes loading */
+                .loaded {
+                  #preloader {
+                    opacity: 0;
+                    visibility: hidden;
+                    @include transition(all 0.7s ease-out);
+                  }
+                }
+              </pre>
+            </section>
+
+            <section id="using-elements">
+              <h1>Elements</h1>
+              <p><strong>Bigbag</strong> includes 15+ basic elements <br><br>
+                
+                <h4>How to use elements</h4>
+                <strong>Bigbag</strong> itself designed using it's General elements. 
+              You can use these elements to create/update or customize existing design. Each element has it's own using instructions and code examples. You can find both by clicking <code>&lt;&gt;show code</code> button right side of each elements title.
+              <br>
+              <br>
+              Here is the image of an element title
+              </p>
+              <img src="img/ins.jpg" alt="image">
+            </section>
+            
+            <section id="dev-environment">
+              <h1>Dev Environment - using Node and Gulp</h1>
+              
+              <p>
+                <strong>Step-1:</strong>  <a target="_blank" href="https://nodejs.org/en/">Download</a> Node.js and install into your computer. 
+                <br>
+                <strong>Step-2:</strong> Open <strong>terminal</strong> in the project root directory.
+                <br>
+                <strong>Step-3:</strong> Then run the following command accordingly into terminal: 
+                <pre class="brush: js;">
+                  //install gulp-cli globally
+                  $ npm install gulp-cli -g
+                  
+                  //install devDependencies 
+                  $ npm install 
+
+                  //run project
+                  $ gulp
+                </pre>
+                - this will fire default gulp task which includes: launching BrowserSync, build all html files, javascript minification, sass compilation and lanching watch task. BrowserSync will create dev server and sync your browser with your code editor.
+                <br>
+                <br>
+                <strong>Step-4:</strong> You are all done to edit scss files and gulp will compile your scss to normal css.
+              </p> 
+              <br>
+              <h4>Sass File structure</h4>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="w-25">Folder / File name</th>
+                    <th class="w-75">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="w-25"><span>Main folder</span></td>
+                    <td class="w-75">Folder contains <code>_reset.scss</code> and <code>_common.scss</code> files. Most basic styles and commonly used classes. Also container all pages scss files</td>
+                  </tr>
+                  <tr>
+                    <td class="w-25"><span>partials folder</span></td>
+                    <td class="w-75">This folder contains helper Sass files namely: <code>_variables.scss</code>, <code>_mixins.scss</code>, <code>_media-query.scss</code>.</td>
+                  </tr>
+                  
+                  <tr>
+                    <td class="w-25"><span>elements folder</span></td>
+                    <td class="w-75">All elements used accross the template and their styles scss are placed in this folter</td>
+                  </tr>
+                  <tr>
+                    <td class="w-25"><span>style.scss</span></td>
+                    <td class="w-75">Main Sass file that imports all other files and is compiled to <code>style.min.css</code>.</td>
+                  </tr>
+                </tbody>
+              </table>
+             
+              <br>
+              <h1>Sass compiling - using Koala</h1>
+              <p>
+                <strong>Step 1: Installation - </strong> The first step is to <a href="http://koala-app.com/" target="_blank">download</a>,  install and launch Koala. This is what you should see the first time you launch Koala.
+              </p>
+              
+              <p>
+                <strong>Step 2: Adding a project - </strong> Now all you have to do is locate your Sass project folder, and drag it into the window. Koala will then list every Sass file it can find.
+              </p>
+              
+              <p>
+                <strong>Step 3: Compiling - </strong> Now all you have to do is select any listed Sass file and press compile. Koala will then compile your file and produce a normal CSS file using the same name. That’s it! No complications. No typing commands in a console. Just drag, select and click.
+              </p>
+              
+              <p>
+                <strong>Conclusion - </strong>There are many other Sass compilers out there, some even more powerful and many times faster. Unfortunately many of these are either paid or are non GUI based. They are neither straight forward nor user friendly to Sass newbies. If you are new to Sass, you should try Koala first then the rest later. But I must warn you, once you go Koala there is no going back.
+              </p>
+            </section>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>

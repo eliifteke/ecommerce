@@ -1,0 +1,77 @@
+/* ================================================
+--> Elements icon style
+================================================== */
+.icon-v1, .icon-v2, .icon-v3, .icon-v4 {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+	transition: all .2s ease-in-out;
+	color: #6c6c6c;
+}
+.icon-xs {
+	width: 24px;
+	height: 24px;
+	font-size: 12px;
+	line-height: 24px;
+}
+.icon-sm {
+	width: 30px;
+	height: 30px;
+	font-size: 14px;
+	line-height: 30px;
+}
+.icon-v2 {
+	border-style: solid;
+	border: solid 1px #eee;
+	&.icon-xs {
+		width: 30px;
+		height: 30px;
+		font-size: 12px;
+		line-height: 30px;
+	}
+	&.icon-sm {
+		width: 40px;
+		height: 40px;
+		font-size: 14px;
+		line-height: 40px;
+	}
+}
+.icon-v3 {
+	background-color: #eee;
+	&.icon-xs {
+		width: 30px;
+		height: 30px;
+		font-size: 12px;
+		line-height: 30px;
+	}
+	&.icon-sm {
+		width: 40px;
+		height: 40px;
+		font-size: 14px;
+		line-height: 40px;
+	}
+}
+.icon-v4 {
+    padding: 4px;
+    background: transparent !important;
+    border: solid 1px #eee;
+	transition: all .1s ease-in-out;
+	&.icon-xs {
+		width: 40px;
+		height: 40px;
+		font-size: 12px;
+		line-height: 30px;
+	}
+	&.icon-sm {
+		width: 50px;
+		height: 50px;
+		font-size: 14px;
+		line-height: 40px;
+	}
+	.icon-v4-inner {
+		position: relative;
+		display: block;
+		overflow: hidden;
+		background-color: #eee;
+	}
+}

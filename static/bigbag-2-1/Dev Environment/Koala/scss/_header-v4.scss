@@ -1,0 +1,91 @@
+.navbar-transparent {
+	background: -moz-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%); 
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%); 
+	background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33000000', endColorstr='#00000000',GradientType=0 );
+	position: absolute;
+	width: 100%;
+	border-bottom: 1px solid rgba($white-color, 0.3);
+	box-shadow: none;
+	.navbar-collapse {
+		@include tablet {
+			background: transparent;
+			border: none;
+			.navbar-nav.ml-auto {
+				margin-right: 0px;
+			}
+		}
+	}
+	.logo-pm {
+		fill: $white-color;
+	}
+	.navbar-nav {
+		.nav-item {
+			a.nav-link {
+				text-transform: uppercase;
+			}
+			@include tablet {
+				a.nav-link {
+					padding: 26px 8px;
+					color: $white-color;
+					text-transform: capitalize;
+				}
+				&.active {
+					a.nav-link {
+						color: $primary-color;
+					}
+				}
+			}
+			@include desktops {
+				a.nav-link {
+					padding: 37px 15px;
+					text-transform: uppercase;
+				}
+			}
+			a.nav-link.primary-btn {
+				padding: 0!important;
+				height: 40px;
+				width: 90px;
+				border: 2px solid $primary-color;
+				line-height: 38px;
+				margin-top: 24px;
+				display: inline-block;
+				text-align: center;
+				@include tablet {
+					margin-top: 12px;
+					width: 85px;
+				}
+				@include desktops {
+					margin-top: 24px;
+					width: 110px;
+				}
+			}
+			&:last-child {
+				a.nav-link {
+					padding-right: 0px;
+				}
+			}
+		}
+	}
+	&.bb-fixed-header {
+		background: $white-color;
+		position: fixed;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		border-bottom: none;
+		.logo-pm {
+			fill: #333;
+		}
+		.navbar-nav {
+			.nav-item {
+				a.nav-link {
+					color: $secondary-color;
+				}
+				&.active {
+					a.nav-link {
+						color: $primary-color;
+					}
+				}
+			}
+		}
+	}
+}

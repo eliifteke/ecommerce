@@ -1,0 +1,198 @@
+{% extends 'layout.html' %}
+{% load templatetags %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 sideBar">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Kategoriler</div>
+                    <div class="panel-body">
+                        <div class="collapse navbar-collapse navbar-ex1-collapse navbar-side-collapse">
+                            <ul class="nav navbar-nav side-nav">
+                                {% for kategori in kategoriler %}
+                                    <li>
+                                        <a href="{% url 'kategorislug' kategori.slug %}"
+                                                {% if kategori.altkategorimodel_set.all|length > 0 %}
+                                           data-toggle="collapse" aria-expanded="false"
+                                           data-target="#{{ kategori.slug }}"
+                                                {% endif %}
+                                        >{{ kategori.adi }}
+                                            {% if kategori.altkategorimodel_set.all|length > 0 %}
+                                                <i class="fa fa-plus"></i>
+                                            {% endif %}
+                                        </a>
+                                        {% if kategori.altkategorimodel_set.all|length > 0 %}
+                                            <ul id="{{ kategori.slug }}" class="collapse">
+                                                {% for altkategori in kategori.altkategorimodel_set.all %}
+
+                                                    <li><a href="#"><i class="fa fa-caret-right"
+                                                                       aria-hidden="true"></i>{{ altkategori.adi }}
+                                                        <span>({{ altkategori.urunmodel_set.all|length }})</span></a>
+                                                    </li>
+
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+
+                                    </li>
+
+                                {% endfor %}
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default priceRange">
+                    <div class="panel-heading">Filter by Price</div>
+                    <div class="panel-body clearfix">
+                        <div class="price-slider-inner">
+                    <span class="amount-wrapper">
+                      Price:
+                      <input type="text" id="price-amount-1" readonly>
+                      <strong>-</strong>
+                      <input type="text" id="price-amount-2" readonly>
+                    </span>
+                            <div id="price-range"></div>
+                        </div>
+                        <input class="btn-default" type="submit" value="Filter">
+                        <!-- <span class="priceLabel">Price: <strong>$12 - $30</strong></span> -->
+                    </div>
+                </div>
+                <div class="panel panel-default filterNormal">
+                    <div class="panel-heading">filter by Color</div>
+                    <div class="panel-body">
+                        <ul class="list-unstyled">
+                            <li><a href="#">Black<span>(15)</span></a></li>
+                            <li><a href="#">White<span>(10)</span></a></li>
+                            <li><a href="#">Red<span>(7)</span></a></li>
+                            <li><a href="#">Blue<span>(12)</span></a></li>
+                            <li><a href="#">Orange<span>(12)</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default filterNormal">
+                    <div class="panel-heading">filter by Size</div>
+                    <div class="panel-body">
+                        <ul class="list-unstyled clearfix">
+                            <li><a href="#">Small<span>(15)</span></a></li>
+                            <li><a href="#">Medium<span>(10)</span></a></li>
+                            <li><a href="#">Large<span>(7)</span></a></li>
+                            <li><a href="#">Extra Large<span>(12)</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8">
+
+                <div class="row productListSingle">
+                    {% if not kategori is None %}
+                        {% for urun in kategori.urunmodel_set.all %}
+                            <div class="col-sm-12 ">
+                                <div class="media flex-wrap productBox">
+                                    <div class="media-left">
+                                        <div class="productImage clearfix">
+                                            {% urunsliderresim urun %}
+                                            <div class="productMasking">
+                                                <ul class="list-inline btn-group" role="group">
+                                                    <li><a class="btn btn-default btn-wishlist"><i
+                                                            class="fa fa-heart-o"></i></a></li>
+                                                    <li><a href="javascript:void(0)" class="btn btn-default"
+                                                           data-toast
+                                                           data-toast-type="success" data-toast-position="topRight"
+                                                           data-toast-icon="icon-circle-check"
+                                                           data-toast-title="Product"
+                                                           data-toast-message="successfuly added to cart!"
+                                                           class="btn btn-default"><i
+                                                            class="fa fa-shopping-basket"></i></a>
+                                                    </li>
+                                                    <li><a class="btn btn-default" data-toggle="modal"
+                                                           href=".quick-view"><i
+                                                            class="fa fa-eye"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><a href="single-product.html">{{ urun.adi }}</a>
+                                        </h4>
+                                        <p>{{ urun.aciklama|safe }}</p>
+                                        <h3>{{ urun.urunfiyat.satisfiyati }} ₺</h3>
+                                        <div class="btn-group" role="group">
+                                            <button type="button" class="btn btn-default" data-toggle="modal"
+                                                    data-target=".login-modal"><i class="fa fa-heart"
+                                                                                  aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-default"
+                                                    onclick="location.href='cart-page.html';"><i
+                                                    class="fa fa-shopping-cart"
+                                                    aria-hidden="true"></i>
+                                            </button>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    {% else %}
+                        {% for kategori in kategoriler %}
+                            {% for urun in kategori.urunmodel_set.all %}
+                                <div class="col-sm-12 ">
+                                    <div class="media flex-wrap productBox">
+                                        <div class="media-left">
+                                            <div class="productImage clearfix">
+                                                {% urunsliderresim urun %}
+                                                <div class="productMasking">
+                                                    <ul class="list-inline btn-group" role="group">
+                                                        <li><a class="btn btn-default btn-wishlist"><i
+                                                                class="fa fa-heart-o"></i></a></li>
+                                                        <li><a href="javascript:void(0)" class="btn btn-default"
+                                                               data-toast
+                                                               data-toast-type="success" data-toast-position="topRight"
+                                                               data-toast-icon="icon-circle-check"
+                                                               data-toast-title="Product"
+                                                               data-toast-message="successfuly added to cart!"
+                                                               class="btn btn-default"><i
+                                                                class="fa fa-shopping-basket"></i></a>
+                                                        </li>
+                                                        <li><a class="btn btn-default" data-toggle="modal"
+                                                               href=".quick-view"><i
+                                                                class="fa fa-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading"><a href="single-product.html">{{ urun.adi }}</a>
+                                            </h4>
+                                            <p>{{ urun.aciklama|safe }}</p>
+                                            <h3>{{ urun.urunfiyat.satisfiyati }} ₺</h3>
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-default" data-toggle="modal"
+                                                        data-target=".login-modal"><i class="fa fa-heart"
+                                                                                      aria-hidden="true"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-default"
+                                                        onclick="location.href='cart-page.html';"><i
+                                                        class="fa fa-shopping-cart"
+                                                        aria-hidden="true"></i>
+                                                </button>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+
+                    {% endif %}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

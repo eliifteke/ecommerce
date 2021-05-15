@@ -1,0 +1,82 @@
+/*================================================
+--> Element button_group
+==================================================*/
+#button-group {
+	.btn-group {
+		margin-bottom: 10px;
+	}
+	.btn-social {
+		margin-bottom: 10px;
+		margin-right: 5px;
+	}
+} 
+.btn-group {
+	margin-right: 10px;
+	.btn-secondary {
+		&:before {
+			content: '';
+			position: absolute;
+			right: 0;
+			height: 100%;
+	  		// border-right: 1px solid #dedede;
+		}
+	}
+	.btn-primary {
+		&:before {
+			content: '';
+			position: absolute;
+			right: 0;
+			height: 100%;
+			border-right: 1px solid #6fbecb;
+		}
+	}
+	.btn-success {
+		&:before {
+			content: '';
+			position: absolute;
+			right: 0;
+			height: 100%;
+			border-right: 1px solid #41b226;
+		}
+	}
+	.btn-info {
+		&:before {
+			content: '';
+			position: absolute;
+			right: 0;
+			height: 100%;
+			border-right: 1px solid #3b90c8;
+		}
+	}
+	.btn-warning {
+		&:before {
+			content: '';
+			position: absolute;
+			right: 0;
+			height: 100%;
+			border-right: 1px solid #d4ad31;
+		}
+	}
+	.btn-danger {
+		&:before {
+			content: '';
+			position: absolute;
+			right: 0;
+			height: 100%;
+			border-right: 1px solid #df5354;
+		}
+	}
+	.btn-inverse {
+		&:before {
+			content: '';
+			position: absolute;
+			right: 0;
+			height: 100%;
+			border-right: 1px solid #222222;
+		}
+	}
+	.btn.btn-secondary:before,
+	.btn:last-child:before {
+		border-right: 0px solid rgba(20,20,20,0.2);
+	}
+}

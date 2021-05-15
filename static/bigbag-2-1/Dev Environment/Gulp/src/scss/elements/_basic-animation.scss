@@ -1,0 +1,28 @@
+/* ================================================
+--> Elements Alert style
+================================================== */
+.anim_item {
+    position: relative;
+    text-align: center;
+    border: 1px solid #e5e5e5;
+    padding: 60px 20px 30px;
+    margin-top: 50px;
+    margin-bottom: 50px; 
+    .icon {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 24px;
+        border: 1px solid #e5e5e5;
+        border-radius: 50%;
+        background: #fff;
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    h5 {
+    	margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,956 @@
+/*===  BANNER ===*/
+.fullscreenbanner-container {
+	width:100%;
+	position:relative;
+	padding:0;
+	.tp-bullets.preview4{
+		position: relative;
+		left: 0 !important; 
+		bottom: 0 !important;
+		padding: 9px 50px;
+		width: 150px;
+		height: 30px;
+		margin: -15px auto 0px auto !important;
+		display: none;
+		@include tablet {
+			display: block;
+		}
+		@include linear-gradient(to bottom, $primary-color-light 0%, $primary-color-light 50%, $primary-color 51%, $primary-color 100%);
+		text-align: center;
+		&::before{
+			content: "";
+			width: 22px;
+			height: 22px;
+			position: absolute;
+			left: -10px;
+			top: 4px;
+			z-index: -1;
+			@include linear-gradient(135deg, $primary-color-light 0%, $primary-color-light 50%, $primary-color 51%, $primary-color 100%);
+			@include transform(rotate(45deg));
+		}
+		&::after{
+			content: "";
+			width: 22px;
+			height: 22px;
+			position: absolute;
+			right: -10px;
+			top: 4px;
+			z-index: -1;
+			@include linear-gradient(135deg, $primary-color-light 0%, $primary-color-light 50%, $primary-color 51%, $primary-color 100%);
+			@include transform(rotate(45deg));
+		}
+		&.hidebullets{
+			opacity: 1;
+		}
+	}
+	.tp-bullets.preview4 .bullet {
+		background-color: rgba($white-color, .5) !important;
+		@include border-radius (50%);
+		box-shadow: none!important;
+		width: 9px !important;
+		height: 9px !important;
+		border:  0 !important;
+		display: inline-block;
+		margin: 0 2px 2px 2px!important;
+		@include transition (background-color 0.2s, border-color 0.2s);
+		float: none !important;
+	}
+	.tp-bullets.preview4 .bullet:hover, .tp-bullets.preview4 .bullet.selected {
+		box-shadow: none!important;
+		background-color: $white-color !important;
+	}
+	.tparrows.preview4 .tp-arr-iwrapper {
+		display: none !important;
+	}
+}
+.tp-bullets{
+	z-index: 99;
+}
+@include tablet {
+	.tparrows.preview4:hover:after{	
+		-webkit-transform: rotateY(0);
+		transform:rotateY(0);
+	 }
+	.tp-leftarrow.preview4:hover:after{	
+		-webkit-transform: rotateY(0); 
+		transform:rotateY(0)
+	}
+}
+.fullscreenbanner{
+	width:100%;
+	position:relative;
+}
+.slider-captionV1 .tp-caption{
+	white-space: normal!important;
+	width: inherit;
+	@include tablet {
+		width: 80%;
+	}
+	@include desktops {
+		width: 70%;
+	}
+	@include large-desktops {
+		width: 55%;
+	}
+}
+.captionCenterAlign{
+	width: auto !important;
+	text-align: center !important;
+	margin: 0 auto !important;
+}
+
+/*=== BANNER V1 ===*/
+.slider-captionV1 .rs-caption-1{
+	width: 50%;
+	@include tablet {
+		width: 60%;
+	}
+	@include large-desktops {
+		width: 55%;
+	}
+}
+.bannerV1 .tp-caption.rs-caption-2{
+	text-transform: capitalize;
+	color: $secondary-color !important;
+	font-size: 14px !important;
+	line-height: 20px !important;
+	@include mobile {
+		font-size: 16px !important;
+		line-height: 22px !important;
+		top: 35px!important;
+	}
+	@include tablet {
+		font-size: 36px !important;
+		line-height: 42px !important;
+		top: 45px!important;
+	}
+	@include desktops {
+		font-size: 46px !important;
+		line-height: 42px !important;
+		top: 75px!important;
+	}
+	@include large-desktops {
+		top: 110px!important;
+	}
+}
+.bannerV1 .tp-caption.rs-caption-3{
+	text-transform: capitalize;
+	color: #704664 !important;
+	font-weight: 300;
+	font-size: 12px !important;
+		line-height: 18px !important;
+		
+	@include mobile {
+		font-size: 14px !important;
+		line-height: 20px !important;
+		top: 65px!important;
+	}
+	@include tablet {
+		font-size: 22px !important;
+		line-height: 36px !important;
+		top: 110px!important;	
+	}
+	@include desktops {
+		top: 135px!important;
+	}
+	@include large-desktops {
+		top: 180px!important;
+	}
+	small{
+		text-transform: none;
+		color: $secondary-color !important;
+		font-size: 10px !important;
+		margin-top: 10px;
+		display: block;
+		max-width: 200px;;
+		line-height: 16px !important;
+		@include mobile {
+			font-size: 12px !important;
+			line-height: 18px !important;
+		}
+		@include tablet {
+			font-size: 13px !important;
+			line-height: 18px !important;
+			max-width: 350px;
+		}	
+		@include desktops {
+			font-size: 14px !important;
+			line-height: 22px !important;
+			max-width: 490px;
+		}	
+	}
+}
+
+
+.tp-caption.rs-caption-4,
+.bannerV2, .bannerV3{
+	.btn{
+		border: 3px solid;
+		border-color: tint($primary-color, 50%)!important;
+		color: $secondary-color !important;
+		font-weight: 700;
+		font-size: 12px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		width: auto;
+		height: auto;
+		line-height: 30px;
+		text-align: center;
+		border-radius: 0;
+		padding:0 10px!important;
+		@include transition(all 0.3s ease-in-out);
+		@include mobile-xs {
+			display: none;
+		}
+		@include tablet {
+			margin-top: 30px;
+			font-size: 13px;
+			width: 140px;
+			height: 40px;
+			line-height: 36px;
+			display: inline-block;
+			padding: 0 !important;
+		}
+		@include desktops {
+			margin-top: 0px;
+			font-size: 15px;
+			width: 160px;
+			height: 50px;
+			letter-spacing: 2px;
+			line-height: 46px;
+		}
+		i{
+			color: $secondary-color!important;
+			font-size: 14px;
+			padding-left: 8px;
+			@include transition(all 0.3s ease-in-out);
+		}
+		&:hover{
+			background-color: $primary-color;
+			color: $white-color !important;
+			i{
+				color: $white-color!important;
+			}
+		}
+	}
+}
+.fullscreenbanner .tp-dottedoverlay.twoxtwo {
+	background-image: none!important;
+	z-index: 1;
+}
+.captionCenter{
+	.tp-caption.rs-caption-2{
+		text-transform: uppercase;
+		color: #704664 !important;
+		font-weight: 300;
+		@include mobile {
+			font-size: 12px !important;
+			line-height: 18px !important;
+		}
+		@include tablet {
+			font-size: 24px !important;
+			line-height: 36px !important;
+		}
+	}
+	.tp-caption.rs-caption-3{
+		text-transform: uppercase;
+		color: $text-slider-title !important;
+		@include mobile {
+			font-size: 14px !important;
+			line-height: 20px !important;
+		}
+		@include tablet {
+			font-size: 36px !important;
+			line-height: 42px !important;
+		}
+	}
+}
+
+/*=== BANNER V2 ===*/
+.bannerV2{
+	.slider-caption-info{
+		background: $white-color;
+		padding:25px;
+		margin:80px auto;
+		width: 320px;
+		height: 320px;
+		border-radius: 50%;
+		position:relative;
+		z-index: 1;
+		@include box-shadow (1px, 2px, 4px, rgba(0, 0, 0, 0.1));
+		@include mobile-xs {
+			padding:7px;
+	    	width: 200px;
+			height: 200px;
+			margin:70px auto;
+	    }
+		@include tablet {
+			padding:15px;
+	    	width: 360px;
+			height: 360px;
+			margin:90px auto;
+	    }
+		@include desktops {
+			padding:25px;
+	    	width: 450px;
+			height: 450px;
+			margin:130px auto;
+	    }
+	}
+	.caption-info-inner{
+		padding:0;
+		margin:0 auto;
+		border-radius: 50%;
+		padding:7px;
+		width: 186px;
+		height: 186px;
+		border:2px solid $primary-color;
+		@include mobile {
+			padding: 20px;
+			width: 270px;
+			height: 270px;
+		}
+		@include tablet {
+	    	width: 330px;
+			height: 330px;
+	    }
+		@include desktops {
+	    	width: 400px;
+			height: 400px;
+	    }
+	}
+}
+.bannerV2 {
+	width: 100%;
+    position: relative;
+    padding: 0;
+    background-color: #f5f5f5;
+	.h2{
+		font-size: 25px;
+		line-height: 25px;
+	    color: $secondary-color;
+	    font-weight: 400;
+	    margin: 30px auto;
+	    text-transform: capitalize;
+	    @include mobile-xs {
+	    	font-size: 20px;
+			line-height: 24px;
+			margin: 10px auto 7px;
+	    }
+		@include tablet {
+			margin: 30px auto;
+	    }
+		@include desktops {
+	    	font-size: 34px;
+			line-height: 28px;
+			margin: 50px auto 25px;
+	    }
+	}
+	.border{
+		border: none!important;
+		width: 45px;
+		height: 3px;
+		background:$primary-color;
+		margin: 0 auto;
+		display: block;
+	}
+	.para{
+		font-size: 11px;
+		line-height: 16px;
+	    color: $text-slider-title;
+	    margin: 10px;
+	    display: block;
+		clear: both;
+		@include mobile {
+			margin: 20px 10px;
+		}
+		@include tablet {
+			font-size: 14px;
+			line-height: 18px;
+			margin: 20px 25px;
+	    }
+		@include desktops {
+			font-size: 14px;
+			line-height: 22px;
+	    	margin: 25px 30px;
+	    }
+	}
+	.slider-button a.btn{
+		display: none;
+		margin-top: 15px;
+		font-size: 14px;
+		width: 146px;
+		height: 40px;
+		line-height: 40px;
+		padding: 0 !important;
+		border: none;
+		background:$primary-color;
+		color: $white-color !important;
+		i{
+			color: $white-color !important;
+		}
+		@include tablet {
+			display: inline-block;
+		}
+		@include desktops {
+			margin-top: 30px;
+			width: 167px;
+			height: 50px;
+			line-height: 50px;
+		}
+	}
+}
+.bannerV2 .fullscreenbanner-container{
+	width:100%;
+	overflow:hidden;
+	.fullscreenbanner-bg{
+		background: $primary-color;
+		position:absolute;
+		top: 0;
+		left: 0;
+		width: calc(50% - 50px);
+		height: 100%;
+		bottom:0;
+		@include tablet {
+			width: calc(50% - 100px);
+		}
+		@include desktops {
+			width: calc(50% - 150px);
+		}
+		&:after {
+			position: absolute;
+			content: '';
+			border-left: 100px solid $primary-color;
+			border-bottom: 410px solid transparent;
+			right: -100px;
+			@include tablet {
+				border-left: 200px solid $primary-color;
+				border-bottom: 613px solid transparent;
+				right: -200px;
+			}
+			@include desktops {
+				border-left: 300px solid $primary-color;
+				border-bottom: 800px solid transparent;
+				right: -300px;
+			}
+		}
+	}
+	.slider-caption{
+		position:relative;
+		padding:35px 0;
+		.caption{
+			position:absolute;
+			width: 23%;
+			@include tablet {
+				width: 19%;
+			}
+			span.tag {
+				background: #ffeb41;
+				display: inline-block;
+				font-size: 12px;
+				color: #252525;
+				padding: 3px 5px;
+				position: absolute;
+				right: -7%;
+				top: 50%;
+				transform: translateY(-50%);
+				font-weight: 700;
+				@include tablet {
+					font-size: 15px;
+					padding: 5px 10px;
+				}
+			}
+		}
+		img{
+			display: inline-block;
+			max-width: 100%;
+			
+		}
+		.caption1{
+			left: -7%;
+			@include tablet {
+				left: -4%;
+			}
+			@include desktops {
+				left: -7%;
+			}
+		}
+		.caption2{
+			left: -7%;
+			bottom:35px;
+		}
+		.caption3{
+			right: -7%;
+			span.tag {
+				right: unset;
+				left: -30px;
+			}
+			@include tablet {
+				span.tag {
+					right: auto;
+					left: 0;
+				}
+			}
+		}
+		.caption4{
+			text-align: right;
+			right: -7%;
+			bottom:35px;
+			span.tag {
+				right: unset;
+				left: -30px;
+			}
+			@include tablet {
+				span.tag {
+					right: auto;
+					left: 0;
+				}
+			}
+		}
+
+	}
+}
+.from-bottom{
+ 	opacity:0;
+ 	-webkit-transition:all 0.5s 0.3s ease-in-out;
+	 -o-transition:all 0.5s 0.3s ease-in-out;
+	 transition:all 0.5s 0.3s ease-in-out;
+ 	-webkit-backface-visibility:hidden;
+ 	-moz-backface-visibility:hidden;
+ 	backface-visibility:hidden;
+ }
+ .from-bottom{
+ 	-webkit-transform:translateY(45px);
+ 	-moz-transform:translateY(45px);
+ 	-ms-transform:translateY(45px);
+ 	-o-transform:translateY(45px);
+ 	transform:translateY(45px);
+ }
+ .current-sr-slide-visible .from-bottom{
+ 	opacity:1;
+ 	-webkit-transform:translateY(0);
+ 	-moz-transform:translateY(0);
+ 	-ms-transform:translateY(0);
+ 	-o-transform:translateY(0);
+ 	transform:translateY(0);
+ }
+.delay-1{
+ 	-webkit-transition-delay:0.9s;
+ 	transition-delay:0.9s;
+}
+ .delay-2{
+ 	-webkit-transition-delay:1.2s;
+ 	transition-delay:1.2s;
+}
+ .delay-3{
+ 	-webkit-transition-delay:1.4s;
+ 	transition-delay:1.4s;
+ }
+.delay-4{
+ 	-webkit-transition-delay:1.5s;
+ 	transition-delay:1.5s;
+ }
+ /*===  BANNER V3 ===*/
+.bannerV3 {
+	padding: 0;
+	background:#f0f0f0;
+	.slide{
+		height: 450px;
+		background:$white-color;
+		@include box-shadow (1px, 4px, 8px, rgba(0, 0, 0, 0.1));
+		padding:25px 20px;
+		text-align: center;
+		 @include tablet {
+			text-align: left;
+			height: 500px;
+	    }
+		@include large-desktops {
+			height: 550px;
+	    	padding:55px 50px;
+	    }
+		.slider-title {
+		    margin: 0 0 25px 0;
+			border-bottom: 5px solid #e4e4e4;
+			@include mobile {
+				margin: 0 0 10px 0;
+			}
+			@include tablet {
+				margin: 0 0 25px 0;
+			}
+		    @include large-desktops {
+		    	 margin: 0 0 45px 0;
+		    }
+		}
+		.slider-title h3 {
+			font-size: 20px;
+			display: inline-block;
+			margin: 0 auto 10px;
+		    text-transform: uppercase;
+		    font-weight: 700;
+		    @include tablet {
+		    	margin:0 0 10px;
+		    }
+		    @include large-desktops {
+		    	font-size: 30px;
+		    }
+		    span{
+		    	color: $primary-color;
+		    }
+		}
+		.productCaption{
+			position:relative;
+			z-index: 9;
+			width: 100%;
+			text-align: center;
+			@include tablet {
+		    	width: 60%;
+		    	text-align: left;
+		    }
+			h4{
+				font-size: 18px;
+			    margin-bottom: 15px;
+			    font-weight: 700;
+			    text-transform: capitalize;
+			    @include tablet {
+					margin-bottom: 30px;
+				}
+			    @include large-desktops {
+			    	font-size: 24px;
+			    }
+			}
+			span{
+				display: inline-block;
+			}
+			.offer-price{
+				font-size: 18px;
+			    font-weight: 700;
+			    text-transform: capitalize;
+			    color: $primary-color;
+			    margin-right: 10px;
+			    @include large-desktops {
+			    	font-size: 24px;
+			    }
+			}
+			.regular-price{
+				font-size: 16px;
+			    font-weight: 700;
+			    text-transform: capitalize;
+			    color: #c5c5c5;
+			    margin-right: 10px;
+			    @include large-desktops {
+			    	font-size: 20px;
+			    }
+			}
+			.offer{
+				font-size: 16px;
+			    background-color: $primary-color;
+			    color: $white-color;
+			    padding:7px 10px;
+			    @include large-desktops {
+			    	font-size: 20px;
+			    }
+			}
+		}
+		.slider_timer{
+			width: 100%;
+			margin-bottom: 25px;
+			@include large-desktops {
+		    	margin-bottom: 45px;
+		    }
+			.table-cell{
+				width: 40px;
+				margin-right: 8px;
+				display: inline-block;
+				@include large-desktops {
+			    	width: 60px;
+					margin-right: 15px;
+			    }
+				&:last-child{
+					margin-right: 0;
+				}
+				.tab-val{
+					width: 100%;
+					height: 40px;
+					background:#f0f0f0;
+					font-size: 20px;
+					line-height: 40px;
+					text-align: center;
+					@include large-desktops {
+				    	height: 60px;
+				    	line-height: 60px;
+				    	font-size: 30px;
+				    }
+				}
+				.tab-metr{
+					font-size: 14px;
+					text-transform: capitalize;
+					@include large-desktops {
+				    	font-size: 12px;
+				    }
+				}
+			}
+		}
+		.btn{
+			display: inline-block;
+			clear: both;
+			margin-top: 20px;
+			border-width: 2px;
+			@include tablet {
+				margin-top: 35px;
+				i {
+					margin-left: 10px;
+				}
+			}
+			@include large-desktops {
+		    	margin-top: 55px;
+		    }
+		}
+	}
+}
+.slide-info{
+	position:relative;
+	.productImage{
+		width: 25%;
+		margin: 0 auto 20px;
+		@include mobile {
+			width: 16%;
+		}
+		@include tablet {
+	    	width: 39%;
+			position:absolute;
+			bottom:0;
+			right: 0;
+			margin: 0;
+	    }
+		img{
+			display: inline-block;
+			width: auto;
+			max-width: 100%;
+		}
+	}
+}
+.bannerV3 {
+	.bg-image-box {
+		height: 100%;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.slide {
+		margin: 30px 15px 30px;
+		@include tablet {
+			margin: 50px 50px 50px -50px;
+		}
+		@include desktops {
+			margin: 80px 80px 80px -80px;
+		}
+	}
+}
+
+
+ /*===  BANNER V4 ===*/
+.bannerV4{
+	width:100%;
+	float: right;
+	margin-top:30px;
+	margin-bottom:30px;
+	@include large-desktops {
+		width:835px;
+	}
+	.fullscreenbanner {
+		@include large-desktops {
+			height: 470px !important;
+		}
+	}
+	&.fullscreenbanner-container .tp-bullets{
+		display: none;
+	}
+	.tparrows.default.preview4.tp-leftarrow{
+		left: 20px !important;
+	}
+	.tparrows.default.preview4.tp-rightarrow{
+		right: 20px !important;
+	}
+}
+.slider-captionV4 {
+	.tp-caption.rs-caption-2,
+	.tp-caption.rs-caption-3,
+	.tp-caption.rs-caption-4{
+		white-space: normal!important;
+		width: inherit;
+		@include tablet {
+			width: 80%;
+		}
+		@include desktops {
+			width: 70%;
+		}
+		@include large-desktops {
+			width: 55%;
+		}
+	}
+}
+.slider-captionV4 .tp-caption.rs-caption-2{
+	text-transform: uppercase;
+	color: $secondary-color !important;
+	font-weight: 700;
+	font-size: 16px !important;
+	line-height: 20px !important;
+	@include mobile {
+		font-size: 24px !important;
+		line-height: 30px !important;
+	}
+	@include tablet {
+		font-size: 36px !important;
+		line-height: 38px !important;
+	}
+	small{
+		color: $primary-color !important;
+		font-size: 10px !important;
+		line-height: 16px !important;
+		@include mobile {
+			font-size: 13px !important;
+			line-height: 17px !important;
+		}
+		@include tablet {
+			font-size: 16px !important;
+			line-height: 20px !important;
+		}	
+	}
+}
+.slider-captionV4 .tp-caption.rs-caption-3{
+	color: rgba($secondary-color,0.7) !important;
+	font-size: 12px !important;
+	line-height: 16px !important;
+	margin-top: 0 !important;
+	@include mobile {
+		font-size: 12px !important;
+		line-height: 16px !important;
+	}
+	@include tablet {
+		font-size: 16px !important;
+		line-height: 20px !important;
+		margin-top: -20px !important;
+	}
+	@include desktops {
+    	margin-top: -30px !important;
+    }
+}
+.slider-captionV4 .tp-caption.rs-caption-4{
+	margin-top: 0 !important;
+	@include tablet {
+    	margin-top: -20px !important;
+    }
+	@include desktops {
+    	margin-top: -40px !important;
+    }
+}
+
+/*=== BANNER V5 ===*/
+.bannerV5 {
+	.fullscreenbanner-container {
+		width: unset;
+		min-height: 400px;
+		@include tablet {
+			min-height: 600px;
+		}
+		@include tablet {
+			min-height: 500px;
+		}
+		@include desktops {
+			min-height: 600px;
+		}
+		@include large-desktops {
+			min-height: 800px;
+		}
+	}
+	.slider-caption {
+		text-align: center;
+		@include tablet {
+			text-align: left;
+		}
+		@include desktops {
+			margin-right: 30px;
+		}
+		h1 {
+			padding-top: 50px;
+			font-weight: 700;
+			font-size: 30px;
+			line-height: 1;
+			color: $white-color;
+			@include tablet {
+				font-size: 35px;
+				margin-bottom: 20px;
+			}
+			@include desktops {
+				font-size: 55px;
+			}
+		}
+		p {
+			font-size: 13px;
+			line-height: 26px;
+			color: $white-color;
+			padding: 0px 0px 10px 0;
+			@include tablet {
+				font-size: 14px;
+				padding: 0px 0px 10px 0;
+			}
+			@include desktops {
+				font-size: 18px;
+				padding: 10px 100px 20px 0;
+			}
+		}
+		.primary-btn {
+			width: 146px;
+			height: 40px;
+			line-height: 36px;
+			padding: 0;
+			font-size: 13px;
+			color: $white-color;
+			border: 2px solid $primary-color;
+			@include desktops {
+				width: 170px;
+				height: 50px;
+				line-height: 46px;
+				font-size: 14px;
+			}
+			i {
+				padding-left: 8px;
+			}
+		}
+	}
+
+	.promo-video-holder {
+		display: none;
+		border: 2px solid rgba($white-color,0.5);
+		padding: 15px;
+		margin-top: 50px;
+		@include tablet {
+			display: block;
+		}
+		.promo-video {
+			float: none;
+			padding-top: 0;
+		}
+		a.video-link {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			i.play-icon {
+				position: relative;
+				height: 80px;
+				width: 80px;
+				line-height: 80px;
+				font-size: 30px;
+				border-radius: 50%;
+				display: inline-block;
+				color: $white-color;
+				padding-left: 10px;
+				text-align: center;
+				background: $primary-color;
+				transition: -webkit-transform 0.3s ease;
+				transition: transform 0.3s ease;
+				transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+			}
+		}
+	}	
+}

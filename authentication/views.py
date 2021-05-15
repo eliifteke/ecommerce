@@ -25,7 +25,7 @@ class UserViewSet(viewsets.ModelViewSet):
         serializer_class=UserImageSerializer,
         parser_classes=[parsers.MultiPartParser],
     )
-    def resim(self, request, pk):
+    def profil(self, request, pk):
         obj = self.get_object()
         serializer = self.serializer_class(obj, data=request.data,
                                            partial=True)

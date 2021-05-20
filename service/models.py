@@ -112,7 +112,7 @@ class UrunModel(BaseModel):
     kategoriId = models.ForeignKey(KategoriModel, on_delete=models.CASCADE, verbose_name="Kategori")
     altkategoriId = models.ForeignKey(AltKategoriModel, on_delete=models.CASCADE, verbose_name="Alt Kategori")
     adi = models.CharField(verbose_name="Ürün Adi ", max_length=255)  # String
-    aciklama = RichTextField(verbose_name="Ürün Açıklama ", blank=True, null=True)
+    aciklama =models.TextField(verbose_name="Ürün Açıklama ", blank=True, null=True)
     fiyat = models.FloatField(verbose_name="Satiş Fiyati ", default=0)
     aktifmi = models.BooleanField(verbose_name="Ürün Aktif Mi ", default=False)
     stok = models.IntegerField(verbose_name="Stok ", default=1)

@@ -9,7 +9,7 @@ from service.models import SehirModel, IlceModel, KategoriModel, AltKategoriMode
 class UrunGaleriInline(NestedStackedInline):
     model = UrunResimler
     extra = 5
-
+"""
 class UrunOzellikInline(NestedStackedInline):
     model = UrunOzellikleri
     extra = 5
@@ -18,7 +18,7 @@ class UrunOzellikInline(NestedStackedInline):
 class UrunFiyatInline(NestedStackedInline):
     model = UrunFiyat
     extra = 1
-
+"""
 
 @admin.register(KategoriModel)
 class AdminKategori(admin.ModelAdmin):
@@ -45,7 +45,7 @@ class AdminUrun(NestedModelAdmin):
     search_fields = ['adi']
     list_filter = ['kategoriId']
     list_editable = ['aktifmi']
-    inlines = [UrunFiyatInline,UrunGaleriInline,UrunOzellikInline]
+    inlines = [UrunGaleriInline]
 
     class Meta:
         model = UrunModel

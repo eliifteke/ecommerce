@@ -93,7 +93,7 @@ class Files_APIView(APIView):
 
     def post(self, request, format=None):
         serializer = UrunResimlerSerializer(data=request.data)
-        resim_list = request.FILES.getlist('urunresim')
+        resim_list = request.FILES.getlist('urunresim',False)
 
         if serializer.is_valid():
             for item in resim_list:

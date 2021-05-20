@@ -11,7 +11,7 @@ from service.models import UrunFiyat, UrunOzellikleri, IlceModel, SehirModel, Ka
     UrunModel, UrunResimler, AdresModel
 from service.serializers import UrunFiyatSerializer, UrunOzellikleriSerializer, IlceSerializer, SehirSerializer, \
     KategoriSerializer, AltKategoriSerializer, UrunSerializer, UrunResimlerSerializer, AdresSerializer, \
-    UrunDetailSerializer
+    UrunDetailSerializer, UrunResmiSerializer
 
 
 class IlceViewSet(viewsets.ModelViewSet):
@@ -42,9 +42,22 @@ class AltKategoriViewSet(FlexFieldsModelViewSet):
 class UrunViewSet(viewsets.ModelViewSet):
     queryset = UrunModel.objects.all()
     serializer_class = UrunSerializer
-    lookup_field = "slug"
-    filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ["adi"]
+
+    @decorators.action(
+        detail=True,
+        methods=['GET', 'PUT'],
+        serializer_class=UrunResmiSerializer,
+        parser_classes=[parsers.MultiPartParser],
+    )
+    def resim(self, request, pk):
+        obj = self.get_object()
+        serializer = self.serializer_class(obj, data=request.data,
+                                           partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return response.Response(serializer.data)
+        return response.Response(serializer.errors,
+                                 status.HTTP_400_BAD_REQUEST)
 
 class UrunDetailSet(viewsets.ModelViewSet):
     queryset = UrunResimler.objects.all()
@@ -57,10 +70,9 @@ class UrunResimlerViewSet(viewsets.ModelViewSet):
     @decorators.action(
         detail=True,
         methods=['POST'],
-        parser_classes=[parsers.MultiPartParser],
-    )
+        parser_classes=[parsers.MultiPartParser],)
 
-    def resim_ekle(self, request, pk):
+    def resim(self, request, pk):
         obj = self.get_object()
         serializer = self.serializer_class(obj, data=request.data,
                                            partial=True)

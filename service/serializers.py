@@ -33,7 +33,11 @@ class AltKategoriSerializer(serializers.ModelSerializer):
         model = AltKategoriModel
         fields = '__all__'
 
+class UrunResmiSerializer(serializers.ModelSerializer):
 
+    class Meta:
+        model = UrunModel
+        fields = ['resim']
 
 class UrunResimlerSerializer(serializers.ModelSerializer):
 
@@ -50,7 +54,7 @@ class UrunSerializer(serializers.ModelSerializer):
     class Meta:
         model = UrunModel
         fields = '__all__'
-        lookup_field = "slug"
+
 
 
 class UrunDetailSerializer(serializers.ModelSerializer):
@@ -60,12 +64,6 @@ class UrunDetailSerializer(serializers.ModelSerializer):
         fields = ['urun', 'urunresim', 'sliderresim']
 
 
-
-class UrunDetailSerializer(serializers.ModelSerializer):
-    urun=UrunSerializer(read_only=False)
-    class Meta:
-        model = UrunResimler
-        fields = ['urun', 'urunresim', 'sliderresim']
 
 
 class UrunOzellikleriSerializer(serializers.ModelSerializer):

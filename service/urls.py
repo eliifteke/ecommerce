@@ -52,7 +52,7 @@ router.register(r'Adres', AdresViewSet)
 router.register(r'Kategori', KategoriViewSet)
 router.register(r'AltKategori', AltKategoriViewSet)"""
 router.register(r'Urun', UrunViewSet)
-router.register(r'UrunDetay', UrunDetailSet)
+#router.register(r'UrunDetay', UrunDetailSet)
 router.register(r'UrunResimler', UrunResimlerViewSet)
 #router.register(r'UrunOzellikleri', UrunOzellikleriViewSet)
 #router.register(r'UrunFiyat', UrunFiyatViewSet)

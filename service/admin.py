@@ -2,14 +2,13 @@ from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 
-from service.models import SehirModel, IlceModel, KategoriModel, AltKategoriModel, UrunModel, UrunOzellikleri, \
-    UrunResimler, UrunFiyat, AdresModel
+from service.models import SehirModel, IlceModel, KategoriModel, AltKategoriModel, UrunModel, AdresModel
 
-
+"""
 class UrunGaleriInline(NestedStackedInline):
     model = UrunResimler
     extra = 5
-"""
+
 class UrunOzellikInline(NestedStackedInline):
     model = UrunOzellikleri
     extra = 5
@@ -45,11 +44,10 @@ class AdminUrun(NestedModelAdmin):
     search_fields = ['adi']
     list_filter = ['kategoriId']
     list_editable = ['aktifmi']
-    inlines = [UrunGaleriInline]
 
     class Meta:
         model = UrunModel
-
+"""
 
 @admin.register(UrunResimler)
 class AdminUrunResim(NestedModelAdmin):
@@ -76,7 +74,7 @@ class AdminUrunFiyat(NestedModelAdmin):
 
     class Meta:
         model = UrunFiyat
-
+"""
 
 @admin.register(SehirModel)
 class AdminSehir(ImportExportModelAdmin):

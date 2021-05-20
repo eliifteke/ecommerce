@@ -1,4 +1,5 @@
 import os
+from django.utils import timezone
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.template.defaultfilters import slugify
@@ -58,9 +59,18 @@ class AdresModel(BaseModel):
         return self.id
 
 def file_urun_save(intence, filename):
-    filename = "urun/{}/{}/{}/".format(intence.urun.kategoriId,intence.urun.id, filename)
-    return os.path.join('urunler',str(intence.urun.id),filename)
+    filename = "urun/{}/{}/{}/".format(intence.urun.kategoriId,intence.urun.altkategoriId, filename)
+    return os.path.join('urunler',str(intence.userid),filename)
 
+def file_resim_save(intence, filename):
+    filename = "urun/{}/{}/{}/".format(intence.kategoriId,intence.altkategoriId, filename)
+    return os.path.join('urunler',str(intence.userid),filename)
+
+def upload_to(instance, filename):
+    now = timezone.now()
+    base, extension = os.path.splitext(filename.lower())
+    milliseconds = now.microsecond // 1000
+    return f"users/{instance.userid}/{now:%Y%m%d%H%M%S}{milliseconds}{extension}"
 
 class KategoriModel(BaseModel):
     adi = models.CharField(verbose_name="Adi", max_length=255)
@@ -114,9 +124,11 @@ class UrunModel(BaseModel):
     adi = models.CharField(verbose_name="Ürün Adi ", max_length=255)  # String
     aciklama =models.TextField(verbose_name="Ürün Açıklama ", blank=True, null=True)
     fiyat = models.FloatField(verbose_name="Satiş Fiyati ", default=0)
+    resim = models.ImageField(upload_to=upload_to, blank=True, verbose_name="Ürün Resim ")
     aktifmi = models.BooleanField(verbose_name="Ürün Aktif Mi ", default=False)
     stok = models.IntegerField(verbose_name="Stok ", default=1)
     slug = models.SlugField(verbose_name="Ürün Slug",default="", editable=False)
+    sliderresim = models.BooleanField(verbose_name="Sliderde Resim Gösterilsin Mi?" , default=False)
 
     def slugOlustur(self):
         slug = slugify(self.adi)
@@ -134,16 +146,15 @@ class UrunModel(BaseModel):
 
 
     class Meta:
-        verbose_name = "Ürün Modeli"
-        verbose_name_plural = "Ürün Modeli"
+        verbose_name = "Ürün Ekleme"
+        verbose_name_plural = "Ürün Ekleme"
         ordering = ['-create_at']
 
 
 class UrunResimler(BaseModel):
     urun = models.ForeignKey(UrunModel, on_delete=models.CASCADE, verbose_name="Ürün ")
-    urunresim = models.FileField(upload_to=file_urun_save, verbose_name="Ürün Resim ")
-    sliderresim = models.BooleanField(verbose_name="Sliderde Gösterilsin Mi " , default=False)
-
+    urunresim = models.ImageField(upload_to=file_urun_save, verbose_name="Ürün Resim ")
+    sliderresim = models.BooleanField(verbose_name="Sliderde Resim Gösterilsin Mi?" , default=False)
 
 
     class Meta:

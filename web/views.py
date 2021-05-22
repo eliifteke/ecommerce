@@ -6,7 +6,7 @@ from service.models import KategoriModel, AltKategoriModel
 
 def index(request):
     kategoriler = KategoriModel.objects.all()
-    return render(request,'pages/index.html' , {'kategoriler': kategoriler})
+    return render(request,'pages/index.html',{'kategoriler': kategoriler})
 
 
 def kategoriler(request , slug = None):

@@ -46,7 +46,7 @@ class IlceModel(BaseModel):
 class AdresModel(BaseModel):
     sehir =models.ForeignKey(SehirModel, on_delete=models.CASCADE , verbose_name="Şehir")
     ilce =models.ForeignKey(IlceModel, on_delete=models.CASCADE , verbose_name="Ilce")
-    adres =models.CharField(verbose_name="Adres", max_length=255)
+    adres =models.CharField(verbose_name="Adresi", max_length=255)
     yedekTelefon = models.CharField(verbose_name="Telefon",max_length=255)
 
     class Meta:

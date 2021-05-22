@@ -22,6 +22,12 @@ urlpatterns = [
     path('kategoriler/' ,  include([
         path('',v.kategoriler , name="kategoriler"),
         path('<str:slug>/',v.kategoriler , name="kategorislug")
+        # baseurl + '/' + slug
+
+    ])),
+    path('elisi/',include([
+        path('' , v.elisi ,name = "elisiindex"),
+
     ]))
 
 ]

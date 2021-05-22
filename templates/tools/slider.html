@@ -12,14 +12,14 @@
                         <div class="slider-caption slider-captionV1 container">
 
                             <div class="tp-caption rs-caption-1 sft start"
-                                 data-hoffset="0"
-                                 data-x="700"
-                                 data-y="0"
+                                 data-hoffset="2"
+                                 data-x="800"
+                                 data-y="100"
                                  data-speed="800"
                                  data-start="1500"
                                  data-easing="Back.easeInOut"
                                  data-endspeed="300">
-                                    {{ urun.sliderresim  }}
+                                {% urunsliderresim urun %}
                             </div>
 
                             <div class="tp-caption rs-caption-2 sft"
@@ -43,7 +43,7 @@
                                  data-endspeed="300"
                                  data-endeasing="Power1.easeIn"
                                  data-captionhidden="off">
-                                  {{ urun.urunfiyat.satisfiyati }} ₺<br>
+                                  {{ urun.fiyat }} ₺<br>
 
                             </div>
                             <div class="tp-caption rs-caption-4 sft"

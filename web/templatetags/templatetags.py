@@ -32,18 +32,18 @@ def urundetaymodal(u : urun):
 
 @register.inclusion_tag("tools/sliderresim.html")
 def urunsliderresim(u:urun):
-    for resim in u.urunresimler_set.all():
-        if resim.sliderresim :
-            return {'resim':resim.urunresim.url}
+    # for resim in u.urunresimler_set.all():
+    #     if resim.sliderresim :
+    #         return {'resim':resim.urunresim.url}
 
-    resim = u.urunresimler_set.all()[len(u.urunresimler_set.all())-1]
+    # resim = u.urunresimler_set.all()[len(u.urunresimler_set.all())-1]
 
-    return {'resim':resim.urunresim.url}
+    return {'resim':u.resim.url}
 
 
-@register.inclusion_tag("tools/kategoriurunler.html")
-def kategoriurunler():
-    kategoriler  = KategoriModel.objects.all()
-    urunler = []
-    for kategori in kategoriler:
-         urunler  = urun.objects.filter(k)
+# @register.inclusion_tag("tools/kategoriurunler.html")
+# def kategoriurunler():
+#     kategoriler  = KategoriModel.objects.all()
+#     urunler = []
+#     for kategori in kategoriler:
+#          urunler  = urun.objects.filter(kategori)

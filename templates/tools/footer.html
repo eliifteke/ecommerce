@@ -1,49 +1,48 @@
+{% load static templatetags %}
 <div class="footer clearfix">
     <div class="container">
         <div class="row">
             <div class="col-md-2 col-12">
                 <div class="footerLink">
-                    <h5>Accessories</h5>
+                    <h5>Yemek</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">Body care </a></li>
-                        <li><a href="#">Chambray </a></li>
-                        <li><a href="#">Floral </a></li>
-                        <li><a href="#">Rejuvination </a></li>
-                        <li><a href="#">Shaving </a></li>
-                        <li><a href="#">Toilette </a></li>
+                        <li><a href="#">Poğaça </a></li>
+                        <li><a href="#">Börek </a></li>
+                        <li><a href="#">Tatlı </a></li>
+                        <li><a href="#">Salata </a></li>
+                        <li><a href="#">Makarna </a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-2 col-12">
                 <div class="footerLink">
-                    <h5>BRANDS</h5>
+                    <h5>El İşi</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">Barbour </a></li>
-                        <li><a href="#">Brioni </a></li>
-                        <li><a href="#">Oliver Spencer</a></li>
-                        <li><a href="#">Belstaff</a></li>
+                        <li><a href="#">Yelek </a></li>
+                        <li><a href="#">Hırka </a></li>
+                        <li><a href="#">Tülbent</a></li>
+                        <li><a href="#">Lif</a></li>
+                        <li><a href="#">Patik</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-2 col-12">
                 <div class="footerLink">
-                    <h5>Accessories</h5>
+                    <h5>Tasarım ve Dekorasyon</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">Body care </a></li>
-                        <li><a href="#">Chambray </a></li>
-                        <li><a href="#">Floral </a></li>
-                        <li><a href="#">Rejuvination </a></li>
-                        <li><a href="#">Shaving </a></li>
-                        <li><a href="#">Toilette </a></li>
+                        <li><a href="#">Kutu </a></li>
+                        <li><a href="#">Anahtarlık </a></li>
+                        <li><a href="#">Süs Eşyaları</a></li>
+                        <li><a href="#">Toka </a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-2 col-12">
                 <div class="footerLink">
-                    <h5>Get in Touch</h5>
+                    <h5>Bizimle İletişime Geçin</h5>
                     <ul class="list-unstyled">
-                        <li>Call us at (555)-555-5555</li>
-                        <li><a href="mailto:support@iamabdus.com">support@iamabdus.com</a></li>
+                        <li>0 (536) 1234567</li>
+                        <li><a href="mailto:support@iamabdus.com">hanimeli@hanimeli.com</a></li>
                     </ul>
                     <ul class="list-inline">
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -56,14 +55,8 @@
             </div>
             <div class="col-md-4 col-12">
                 <div class="newsletter clearfix">
-                    <h4>Newsletter</h4>
-                    <h3>Sign up now</h3>
-                    <p>Enter your email address and get notified about new products. We hate spam!</p>
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="your email address"
-                               aria-describedby="basic-addon2">
-                        <a href="#" class="input-group-addon" id="basic-addon2">go <i
-                                class="fa fa-chevron-right"></i></a>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d385398.58980347496!2d28.73199289583766!3d41.00498228313809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa7040068086b%3A0xe1ccfe98bc01b0d0!2zxLBzdGFuYnVs!5e0!3m2!1str!2str!4v1620309063138!5m2!1str!2str"
+                            width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
@@ -75,15 +68,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7 col-12">
-                <p>&copy; 2021 Çocuk Elif Teke Tarafından oluşturulmuştur
-                </p>
+                <p>&copy; 2021 Çocuk Elif TEKE Tarafından oluşturulmuştur ! Hadi herkes baksın kendi işine ... </p>
             </div>
             <div class="col-md-5 col-12">
                 <ul class="list-inline">
-                    <li><img src="img/home/footer/card1.png"></li>
-                    <li><img src="img/home/footer/card2.png"></li>
-                    <li><img src="img/home/footer/card3.png"></li>
-                    <li><img src="img/home/footer/card4.png"></li>
+                    <li><img src="{% static 'img/home/footer/card1.png' %}"></li>
+                    <li><img src="{% static 'img/home/footer/card2.png' %}"></li>
+                    <li><img src="{% static 'img/home/footer/card3.png' %}"></li>
+                    <li><img src="{% static 'img/home/footer/card4.png' %}"></li>
                 </ul>
             </div>
         </div>

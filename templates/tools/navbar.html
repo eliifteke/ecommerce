@@ -1,3 +1,6 @@
+{% load static %}
+{% load static templatetags %}
+
         <nav class="navbar navbar-main navbar-default navbar-expand-md" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -38,7 +41,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a href="{% url 'kategoriler' %}" class="dropdown-toggle nav-link"
+                            <a href="{% url 'elisiindex' %}" class="dropdown-toggle nav-link"
                                role="button">El İşi</a>
 
                         </li>
@@ -51,7 +54,7 @@
 
                         <li class="nav-item ">
                             <a href="{% url 'kategoriler' %}" class="dropdown-toggle nav-link"
-                               role="button">Bebekk</a>
+                               role="button">Bebek</a>
 
                         </li>
 
@@ -64,14 +67,14 @@
                             <span class="badge">3</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <li>Item(s) in your cart</li>
+                            <li>Sepetindeki Ürünler</li>
                             <li>
                                 <a href="single-product.html">
                                     <div class="media">
-                                        <img class="media-left media-object" src="img/home/cart-items/cart-item-01.jpg"
+                                        <img class="media-left media-object" src="{% static 'img/home/cart-items/cart-item-01.jpg' %}"
                                              alt="cart-Image">
                                         <div class="media-body">
-                                            <h5 class="media-heading">INCIDIDUNT UT <br><span>2 X $199</span></h5>
+                                            <h5 class="media-heading">INCIDIDUNT UT <br><span>2 X ₺199</span></h5>
                                         </div>
                                     </div>
                                 </a>
@@ -79,7 +82,7 @@
                             <li>
                                 <a href="single-product.html">
                                     <div class="media">
-                                        <img class="media-left media-object" src="img/home/cart-items/cart-item-01.jpg"
+                                        <img class="media-left media-object" src="{% static 'img/home/cart-items/cart-item-01.jpg' %}"
                                              alt="cart-Image">
                                         <div class="media-body">
                                             <h5 class="media-heading">INCIDIDUNT UT <br><span>2 X $199</span></h5>
@@ -90,10 +93,10 @@
                             <li>
                                 <div class="btn-group" role="group" aria-label="...">
                                     <button type="button" class="btn btn-default"
-                                            onclick="location.href='cart-page.html';">Shopping Cart
+                                            onclick="location.href='cart-page.html';">Sepete Git
                                     </button>
                                     <button type="button" class="btn btn-default"
-                                            onclick="location.href='checkout-step-1.html';">Checkout
+                                            onclick="location.href='checkout-step-1.html';">Satın Al
                                     </button>
                                 </div>
                             </li>

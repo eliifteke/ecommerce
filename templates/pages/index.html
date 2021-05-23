@@ -2,11 +2,11 @@
 {% load templatetags %}
 {% block content %}
         <div class="container">
-
+{##}
 {#            <div class="page-header">#}
 {#                <h4>Featured Collection</h4>#}
 {#            </div>#}
-
+{##}
 {#            <div class="row featuredCollection margin-bottom">#}
 {#                <div class="col-md-4 col-12">#}
 {#                    <div class="thumbnail" onclick="location.href='single-product.html';">#}
@@ -56,6 +56,8 @@
 {#                    </div>#}
 {#                </div>#}
 {#            </div>#}
+{#        #}
+
             {% for kategori in kategoriler %}
                  <div class="page-header">
                 <h4>{{ kategori.adi }}</h4>
@@ -91,12 +93,11 @@
             {% endfor %}
 
 
-
             </div>
 
             {% endfor %}
 
-
+{##}
 {#            <div class="page-header">#}
 {#                <h4>Latest Articles</h4>#}
 {#            </div>#}
@@ -156,5 +157,7 @@
 {#                    </div>#}
 {#                </div>#}
 {#            </div>#}
+
+
         </div>
 {% endblock %}

@@ -1,30 +1,31 @@
+{% load static templatetags %}
 <div class="col-md-6 col-12">
                         <ul class="list-inline float-right top-right">
-                            <li class="account-login"><span><a data-toggle="modal" href='.login-modal'>Log in</a><small>or</small><a
-                                    data-toggle="modal" href='#signup'>Kayıt </a></span></li>
+                            <li class="account-login"><span><a data-toggle="modal" href='.login-modal'>Giriş Yap</a><small>ya da</small><a
+                                    data-toggle="modal" href='#signup'>Kayıt Ol </a></span></li>
                             <li class="searchBox">
                                 <a href="#"><i class="fa fa-search"></i></a>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li>dd
+                                    <li>
                         <span class="input-group">
-                          <input type="text" class="form-control" placeholder="Search…" aria-describedby="basic-addon2">
-                          <button type="submit" class="input-group-addon">Submit</button>
+                          <input type="text" class="form-control" placeholder="Aramak İstediğiniz Ürünü Giriniz…" aria-describedby="basic-addon2">
+                          <button type="submit" class="input-group-addon">Ara</button>
                         </span>
                                     </li>
                                 </ul>
                             </li>
                             <li class="dropdown cart-dropdown">
                                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i
-                                        class="fa fa-shopping-cart"></i>$0</a>
+                                        class="fa fa-shopping-cart"></i>₺0</a>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li>Item(s) in your cart</li>
+                                    <li>Sepetindeki Ürünler</li>
                                     <li>
                                         <a href="single-product.html">
                                             <div class="media">
                                                 <img class="media-left media-object"
-                                                     src="img/home/cart-items/cart-item-01.jpg" alt="cart-Image">
+                                                     src= "{% static 'img/home/cart-items/cart-item-01.jpg' %}" alt="cart-Image">
                                                 <div class="media-body">
-                                                    <h5 class="media-heading">INCIDIDUNT UT <br><span>2 X $199</span>
+                                                    <h5 class="media-heading">INCIDIDUNT UT <br><span>2 X ₺199</span>
                                                     </h5>
                                                 </div>
                                             </div>
@@ -34,9 +35,9 @@
                                         <a href="single-product.html">
                                             <div class="media">
                                                 <img class="media-left media-object"
-                                                     src="img/home/cart-items/cart-item-01.jpg" alt="cart-Image">
+                                                     src="{% static 'img/home/cart-items/cart-item-01.jpg' %}" alt="cart-Image">
                                                 <div class="media-body">
-                                                    <h5 class="media-heading">INCIDIDUNT UT <br><span>2 X $199</span>
+                                                    <h5 class="media-heading">INCIDIDUNT UT <br><span>2 X ₺199</span>
                                                     </h5>
                                                 </div>
                                             </div>
@@ -45,10 +46,10 @@
                                     <li>
                                         <div class="btn-group" role="group" aria-label="...">
                                             <button type="button" class="btn btn-default"
-                                                    onclick="location.href='cart-page.html';">Shopping Cart
+                                                    onclick="location.href='cart-page.html';">Sepetim
                                             </button>
                                             <button type="button" class="btn btn-default"
-                                                    onclick="location.href='checkout-step-1.html';">Checkout
+                                                    onclick="location.href='checkout-step-1.html';">Satın Al
                                             </button>
                                         </div>
                                     </li>

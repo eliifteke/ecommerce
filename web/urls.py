@@ -15,7 +15,11 @@ Including another URLconf
 """
 
 from django.urls import path, include
-from . import views as v
+from . import views as v, views
+from django.conf.urls import url
+
+
+
 
 urlpatterns = [
     path('', v.index, name="index"),
@@ -28,6 +32,10 @@ urlpatterns = [
     path('elisi/',include([
         path('' , v.elisi ,name = "elisiindex"),
 
-    ]))
+    ])),
+
+    url('register',views.register,name='register'),
+    url('user_login',views.user_login,name='user_login'),
+
 
 ]
